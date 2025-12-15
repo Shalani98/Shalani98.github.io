@@ -485,13 +485,25 @@
 			.contact-grid {
 				grid-template-columns: 1fr;
 			}
-      	/* Project GitHub Buttons */
-		.project-actions {
-			display: flex;
-			gap: 0.6rem;
-			margin-top: 1rem;
-			flex-wrap: wrap;
-		}
+      	.btn-project.btn-github {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.9);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.55rem 1.2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.18s ease-out;
+}
+
+.btn-project.btn-github:hover {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
 
 		}
 	</style>
@@ -704,7 +716,7 @@
 						<span class="tag">RDS</span>
 					</div>
                   <div class="project-actions">
-						<a href="https://github.com/Shalani98/SocialMediaHarrassmentTracker.git" target="_blank" class="btn-project btn-github">🐙 Repository</a>
+						<a href="https://github.com/Shalani98/SocialMediaHarrassmentTracker.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
 					</div>
 				</div>
 
@@ -728,7 +740,7 @@
 						<span class="tag">SQL Server</span>
 					</div>
                   <div class="project-actions">
-						<a href="https://github.com/Shalani98/TEAManagementSystem.git" target="_blank" class="btn-project btn-github">🐙 Repository</a>
+						<a href="https://github.com/Shalani98/TEAManagementSystem.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
 					</div>
 				</div>
 
@@ -752,7 +764,7 @@
 						<span class="tag">JavaScript</span>
 					</div>
                   <div class="project-actions">
-						<a href="https://github.com/Shalani98/TravelCeylon.git" target="_blank" class="btn-project btn-github">🐙 Repository</a>
+						<a href="https://github.com/Shalani98/TravelCeylon.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
 					</div>
 				</div>
 
@@ -776,7 +788,7 @@
 						<span class="tag">JavaScript</span>
 					</div>
                   <div class="project-actions">
-						<a href="https://github.com/Shalani98/Hospital-website.git" target="_blank" class="btn-project btn-github">🐙 Repository</a>
+						<a href="https://github.com/Shalani98/Hospital-website.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
 					</div>
 				</div>
 			</div>
