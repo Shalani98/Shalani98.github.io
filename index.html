@@ -1,203 +1,883 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shalani Nethmini | Portfolio</title>
-    <style>
-        :root {
-            --bg: #050814;
-            --bg-alt: #060b1a;
-            --accent: #22c55e;
-            --accent-soft: rgba(34, 197, 94, 0.15);
-            --accent-dark: #16a34a;
-            --accent-gradient: linear-gradient(135deg, #22c55e, #4ade80);
-            --text: #f9fafb;
-            --muted: #9ca3af;
-            --card: #020617;
-            --border: rgba(148, 163, 184, 0.4);
-            --shadow-strong: 0 24px 60px rgba(0, 0, 0, 0.7);
-        }
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Shalani Nethmini | Portfolio</title>
+	<style>
+		:root {
+			--bg: #050814;
+			--bg-alt: #060b1a;
+			--accent: #22c55e;
+			--accent-soft: rgba(34, 197, 94, 0.15);
+			--accent-dark: #16a34a;
+			--accent-gradient: linear-gradient(135deg, #22c55e, #4ade80);
+			--text: #f9fafb;
+			--muted: #9ca3af;
+			--card: #020617;
+			--border: rgba(148, 163, 184, 0.4);
+			--shadow-strong: 0 24px 60px rgba(0, 0, 0, 0.7);
+		}
 
-        * { box-sizing: border-box; margin:0; padding:0; }
-        html { scroll-behavior: smooth; }
-        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at top left, rgba(34,197,94,0.08), transparent 60%), linear-gradient(180deg, #020617 0%, #020617 50%, #020617 100%); color: var(--text); }
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
 
-        a { color: inherit; text-decoration:none; }
+		html {
+			scroll-behavior: smooth;
+		}
 
-        /* Top Bar */
-        .topbar { position: sticky; top:0; z-index:40; background: rgba(5,8,20,0.96); backdrop-filter: blur(16px); border-bottom:1px solid rgba(15,23,42,0.8);}
-        .topbar-inner { max-width:1120px; margin:0 auto; padding:0.8rem 1.5rem; display:flex; align-items:center; justify-content:space-between;}
-        .brand { display:flex; align-items:center; gap:0.6rem;}
-        .brand-mark { width:40px; height:40px; border-radius:0.6rem; background:var(--accent-gradient); display:flex; align-items:center; justify-content:center; color:#022c22; font-weight:800; font-size:1.1rem; box-shadow:0 14px 30px rgba(34,197,94,0.4);}
-        .brand-name { font-weight:700; letter-spacing:0.08em; text-transform:uppercase; font-size:0.9rem;}
-        .nav-links { display:flex; align-items:center; gap:1.8rem; font-size:0.9rem; color:var(--muted);}
-        .nav-links a { position:relative; padding-bottom:0.1rem;}
-        .nav-links a::after { content:""; position:absolute; left:0; bottom:-0.25rem; width:0; height:2px; background:var(--accent-gradient); border-radius:999px; transition:width 0.18s ease-out;}
-        .nav-links a:hover { color: var(--text); }
-        .nav-links a:hover::after { width:100%; }
+		body {
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			background:
+				radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 60%),
+				linear-gradient(180deg, #020617 0%, #020617 50%, #020617 100%);
+			color: var(--text);
+		}
 
-        .hero { max-width:1120px; margin:0 auto; padding:4.5rem 1.5rem 3.5rem; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1.3fr); gap:3rem; align-items:center; }
-        @media (max-width:900px){ .hero { grid-template-columns:1fr; padding-top:3rem;} }
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
 
-        .hero-eyebrow{ font-size:0.9rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:var(--accent); margin-bottom:0.8rem;}
-        .hero-title { font-size:2.8rem; line-height:1.1; font-weight:800; margin-bottom:0.4rem; }
-        .hero-title span { color:var(--accent); }
-        .hero-role{ font-size:1.02rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:1.1rem; color:#e5e7eb; }
-        .hero-text{ font-size:0.95rem; color:var(--muted); max-width:500px; margin-bottom:1.6rem; }
-        .hero-meta{ font-size:0.9rem; color:var(--muted); margin-bottom:1.8rem; }
-        .hero-meta span{ display:inline-flex; align-items:center; gap:0.35rem; margin-right:1.5rem; margin-bottom:0.4rem; }
-        .hero-actions{ display:flex; flex-wrap:wrap; gap:1rem; }
-        .btn-primary{ display:inline-flex; align-items:center; gap:0.5rem; background:var(--accent-gradient); color:#022c22; border-radius:999px; padding:0.8rem 1.9rem; font-size:0.92rem; font-weight:600; border:none; box-shadow:0 18px 40px rgba(34,197,94,0.35); cursor:pointer; text-decoration:none; transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, filter 0.15s ease-out;}
-        .btn-primary:hover{ transform:translateY(-2px); filter:brightness(1.02); box-shadow:0 22px 50px rgba(34,197,94,0.45); }
-        .btn-secondary{ display:inline-flex; align-items:center; gap:0.6rem; color:var(--text); font-size:0.92rem; font-weight:500; cursor:pointer; }
-        .btn-secondary-circle{ width:38px; height:38px; border-radius:999px; border:2px solid var(--accent); display:inline-flex; align-items:center; justify-content:center; color:var(--accent); }
+		/* TOP BAR / NAV */
+		.topbar {
+			position: sticky;
+			top: 0;
+			z-index: 40;
+			background: rgba(5, 8, 20, 0.96);
+			backdrop-filter: blur(16px);
+			border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+		}
 
-        .hero-visual { display:flex; align-items:center; justify-content:center; }
-        .photo-frame { position:relative; width:min(320px,80vw); aspect-ratio:1; display:flex; align-items:center; justify-content:center; }
-        .frame-outer { position:absolute; inset:0; border-radius:30% / 26%; border:10px solid var(--accent); box-shadow:var(--shadow-strong);}
-        .frame-inner { position:absolute; inset:18px; border-radius:30% / 26%; background:#020617; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-        .photo{ width:100%; height:100%; object-fit:cover; }
+		.topbar-inner {
+			max-width: 1120px;
+			margin: 0 auto;
+			padding: 0.8rem 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 
-        section{ padding:3.2rem 1.5rem; }
-        .section-inner{ max-width:1120px; margin:0 auto; }
-        .section-header{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:1.8rem;}
-        .section-title{ font-size:1.4rem; font-weight:700; display:flex; align-items:center; gap:0.5rem; }
-        .section-title span.accent{ color:var(--accent); }
-        .section-badge{ font-size:0.7rem; text-transform:uppercase; letter-spacing:0.16em; color:var(--muted); }
-        .section-subtitle{ font-size:0.9rem; color:var(--muted); max-width:520px; }
-        .split{ display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1.2fr); gap:1.8rem; }
-        .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.8rem; }
-        .card{ position:relative; background:radial-gradient(circle at top left, rgba(34,197,94,0.09), var(--bg-alt)); border-radius:1rem; padding:1.6rem 1.6rem 1.5rem; border:1px solid rgba(15,23,42,0.9); box-shadow:0 20px 50px rgba(0,0,0,0.55); overflow:hidden; }
-        .card::before{ content:""; position:absolute; inset:-40%; background:radial-gradient(circle at top right, rgba(34,197,94,0.12), transparent 55%); opacity:0; transition: opacity 0.18s ease-out; pointer-events:none; }
-        .card:hover::before{ opacity:1; }
-        .card:hover{ transform:translateY(-4px); transition: transform 0.18s ease-out, border-color 0.18s ease-out; border-color:rgba(34,197,94,0.7);}
-        .card-icon{ width:34px; height:34px; border-radius:0.5rem; background:rgba(15,23,42,0.9); border:1px solid rgba(34,197,94,0.4); display:flex; align-items:center; justify-content:center; color:var(--accent); font-size:1rem; margin-bottom:0.7rem; }
-        .card h3{ font-size:1.02rem; margin-bottom:0.2rem; }
-        .card small{ display:block; color:var(--muted); margin-bottom:0.55rem; font-size:0.8rem; }
-        .card p, .card ul{ font-size:0.9rem; color:#e5e7eb; }
-        .card ul{ list-style:disc inside; margin-top:0.3rem; }
-        .tags{ display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.7rem; }
-        .tag{ font-size:0.75rem; padding:0.18rem 0.65rem; border-radius:999px; border:1px solid var(--border); color:var(--muted); background: rgba(15,23,42,0.9);}
-        .tag.highlight{ border-color:var(--accent); color:#bbf7d0; }
-        .project-actions a{ display:inline-flex; align-items:center; gap:0.35rem; text-decoration:none; font-size:0.88rem; font-weight:500; margin-top:0.6rem;}
-        .btn-project.btn-github{ display:inline-flex; align-items:center; background: rgba(15,23,42,0.9); color:var(--text); border:1px solid var(--border); border-radius:999px; padding:0.55rem 1.2rem; font-size:0.88rem; font-weight:500; transition:all 0.18s ease-out; }
-        .btn-project.btn-github:hover{ background:rgba(34,197,94,0.15); border-color:var(--accent); color:var(--accent); transform:translateY(-2px);}
-        .video-frame video{ width:100%; height:auto; border-radius:0.8rem; box-shadow:0 8px 25px rgba(0,0,0,0.4); margin-top:0.7rem;}
-    </style>
+		.brand {
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+		}
+
+		.brand-mark {
+			width: 40px;
+			height: 40px;
+			border-radius: 0.6rem;
+			background: var(--accent-gradient);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #022c22;
+			font-weight: 800;
+			font-size: 1.1rem;
+			box-shadow: 0 14px 30px rgba(34, 197, 94, 0.4);
+		}
+
+		.brand-name {
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			font-size: 0.9rem;
+		}
+
+		.nav-links {
+			display: flex;
+			align-items: center;
+			gap: 1.8rem;
+			font-size: 0.9rem;
+			color: var(--muted);
+		}
+
+		.nav-links a {
+			position: relative;
+			padding-bottom: 0.1rem;
+		}
+
+		.nav-links a::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -0.25rem;
+			width: 0;
+			height: 2px;
+			background: var(--accent-gradient);
+			border-radius: 999px;
+			transition: width 0.18s ease-out;
+		}
+
+		.nav-links a:hover {
+			color: var(--text);
+		}
+
+		.nav-links a:hover::after {
+			width: 100%;
+		}
+
+		.menu-pill {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 42px;
+			height: 32px;
+			border-radius: 0.6rem;
+			background: var(--accent-gradient);
+			color: #022c22;
+			font-size: 1.1rem;
+			font-weight: 700;
+			box-shadow: 0 12px 24px rgba(34, 197, 94, 0.3);
+		}
+
+		/* HERO SECTION */
+		.hero {
+			max-width: 1120px;
+			margin: 0 auto;
+			padding: 4.5rem 1.5rem 3.5rem;
+			display: grid;
+			grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+			gap: 3rem;
+			align-items: center;
+		}
+
+		@media (max-width: 900px) {
+			.hero {
+				grid-template-columns: 1fr;
+				padding-top: 3rem;
+			}
+		}
+
+		.hero-eyebrow {
+			font-size: 0.9rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: var(--accent);
+			margin-bottom: 0.8rem;
+		}
+
+		.hero-title {
+			font-size: 2.8rem;
+			line-height: 1.1;
+			font-weight: 800;
+			margin-bottom: 0.4rem;
+		}
+
+		.hero-title span {
+			color: var(--accent);
+		}
+
+		.hero-role {
+			font-size: 1.02rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.12em;
+			margin-bottom: 1.1rem;
+			color: #e5e7eb;
+		}
+
+		.hero-text {
+			font-size: 0.95rem;
+			color: var(--muted);
+			max-width: 500px;
+			margin-bottom: 1.6rem;
+		}
+
+		.hero-meta {
+			font-size: 0.9rem;
+			color: var(--muted);
+			margin-bottom: 1.8rem;
+		}
+		.hero-meta span {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			margin-right: 1.5rem;
+			margin-bottom: 0.4rem;
+		}
+
+		.hero-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+
+		.btn-primary {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			background: var(--accent-gradient);
+			color: #022c22;
+			border-radius: 999px;
+			padding: 0.8rem 1.9rem;
+			font-size: 0.92rem;
+			font-weight: 600;
+			border: none;
+			box-shadow: 0 18px 40px rgba(34, 197, 94, 0.35);
+			cursor: pointer;
+			text-decoration: none;
+			transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, filter 0.15s ease-out;
+		}
+		.btn-primary:hover {
+			transform: translateY(-2px);
+			filter: brightness(1.02);
+			box-shadow: 0 22px 50px rgba(34, 197, 94, 0.45);
+		}
+
+		.btn-secondary {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.6rem;
+			color: var(--text);
+			font-size: 0.92rem;
+			font-weight: 500;
+			cursor: pointer;
+		}
+
+		.btn-secondary-circle {
+			width: 38px;
+			height: 38px;
+			border-radius: 999px;
+			border: 2px solid var(--accent);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--accent);
+		}
+
+		/* HERO IMAGE */
+		.hero-visual {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.photo-frame {
+			position: relative;
+			width: min(320px, 80vw);
+			aspect-ratio: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.frame-outer {
+			position: absolute;
+			inset: 0;
+			border-radius: 30% / 26%;
+			border: 10px solid var(--accent);
+			box-shadow: var(--shadow-strong);
+		}
+
+		.frame-inner {
+			position: absolute;
+			inset: 18px;
+			border-radius: 30% / 26%;
+			background: #020617;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+
+		.photo {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		/* SECTIONS */
+		section {
+			padding: 3.2rem 1.5rem;
+		}
+
+		.section-inner {
+			max-width: 1120px;
+			margin: 0 auto;
+		}
+
+		.section-header {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 1rem;
+			margin-bottom: 1.8rem;
+		}
+
+		.section-title {
+			font-size: 1.4rem;
+			font-weight: 700;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		.section-title span.accent {
+			color: var(--accent);
+		}
+		.section-badge {
+			font-size: 0.7rem;
+			text-transform: uppercase;
+			letter-spacing: 0.16em;
+			color: var(--muted);
+		}
+
+		.section-subtitle {
+			font-size: 0.9rem;
+			color: var(--muted);
+			max-width: 520px;
+		}
+
+		/* helper for two-column blocks */
+		.split {
+			display: grid;
+			grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+			gap: 1.8rem;
+		}
+
+		/* GRIDS / CARDS */
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1.8rem;
+		}
+
+		.card {
+			position: relative;
+			background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.09), var(--bg-alt));
+			border-radius: 1rem;
+			padding: 1.6rem 1.6rem 1.5rem;
+			border: 1px solid rgba(15, 23, 42, 0.9);
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+			overflow: hidden;
+		}
+
+		.card::before {
+			content: "";
+			position: absolute;
+			inset: -40%;
+			background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 55%);
+			opacity: 0;
+			transition: opacity 0.18s ease-out;
+			pointer-events: none;
+		}
+
+		.card:hover::before {
+			opacity: 1;
+		}
+
+		.card:hover {
+			transform: translateY(-4px);
+			transition: transform 0.18s ease-out, border-color 0.18s ease-out;
+			border-color: rgba(34, 197, 94, 0.7);
+		}
+
+		.card-icon {
+			width: 34px;
+			height: 34px;
+			border-radius: 0.5rem;
+			background: rgba(15, 23, 42, 0.9);
+			border: 1px solid rgba(34, 197, 94, 0.4);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--accent);
+			font-size: 1rem;
+			margin-bottom: 0.7rem;
+		}
+
+		.card h3 {
+			font-size: 1.02rem;
+			margin-bottom: 0.2rem;
+		}
+
+		.card small {
+			display: block;
+			color: var(--muted);
+			margin-bottom: 0.55rem;
+			font-size: 0.8rem;
+		}
+
+		.card p,
+		.card ul {
+			font-size: 0.9rem;
+			color: #e5e7eb;
+		}
+
+		.card ul {
+			list-style: disc inside;
+			margin-top: 0.3rem;
+		}
+
+		.tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.35rem;
+			margin-top: 0.7rem;
+		}
+
+		.tag {
+			font-size: 0.75rem;
+			padding: 0.18rem 0.65rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			color: var(--muted);
+			background: rgba(15, 23, 42, 0.9);
+		}
+
+		.tag.highlight {
+			border-color: var(--accent);
+			color: #bbf7d0;
+		}
+
+		/* CONTACT */
+		.contact-grid {
+			display: grid;
+			grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
+			gap: 1.8rem;
+		}
+		.contact-list {
+			list-style: none;
+			font-size: 0.9rem;
+			color: #e5e7eb;
+		}
+		.contact-list li {
+			margin-bottom: 0.5rem;
+		}
+		.contact-list strong {
+			color: var(--muted);
+		}
+
+		footer {
+			text-align: center;
+			padding: 2rem 1.5rem 2.4rem;
+			color: var(--muted);
+			border-top: 1px solid rgba(15, 23, 42, 0.9);
+			font-size: 0.85rem;
+		}
+		footer span {
+			color: var(--accent);
+		}
+
+		@media (max-width: 640px) {
+			.topbar-inner {
+				padding-inline: 1rem;
+			}
+			.hero {
+				padding-inline: 1rem;
+			}
+			section {
+				padding-inline: 1rem;
+			}
+			.nav-links {
+				display: none;
+			}
+			.section-header {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			.split,
+			.contact-grid {
+				grid-template-columns: 1fr;
+			}
+      	.btn-project.btn-github {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.9);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.55rem 1.2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.18s ease-out;
+}
+
+.btn-project.btn-github:hover {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+		}
+	</style>
 </head>
 <body>
 
-<header class="topbar">
-    <div class="topbar-inner">
-        <div class="brand">
-            <div class="brand-mark">SN</div>
-            <div class="brand-name">Shalani</div>
-        </div>
-        <nav class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </nav>
+	<!-- TOP BAR -->
+	<header class="topbar">
+		<div class="topbar-inner">
+			<div class="brand">
+				<div class="brand-mark">SN</div>
+				<div class="brand-name">Shalani</div>
+			</div>
+			<nav class="nav-links">
+				<a href="#home">Home</a>
+				<a href="#about">About</a>
+				<a href="#skills">Skills</a>
+				<a href="#projects">Projects</a>
+				<a href="#education">Education</a>
+				<a href="#contact">Contact</a>
+			</nav>
+			
+		</div>
+	</header>
+
+	<!-- HERO -->
+	<section id="home" class="hero">
+		<div>
+			<div class="hero-eyebrow">Hi, I'm Shalani!</div>
+			<h1 class="hero-title">Final Year<br><span>Software Engineering</span> Student</h1>
+		
+			<p class="hero-text">
+				I’m a final-year Software Engineering student passionate about building modern web applications. 
+				With  experience in ASP.NET Core, React, PHP, SQL, and cloud integration, 
+				I enjoy turning real-world problems into clean, user-friendly digital products.
+			</p>
+			<div class="hero-meta">
+				<span>📍 295B/1, Aluthgoda ,Dikwella, Sri Lanka</span>
+				<span>📧 <a href="mailto:shalaninethmini22@gmail.com">shalaninethmini22@gmail.com</a></span>
+			</div>
+			<div class="hero-actions">
+				<a href="Shalani_Nethmini_CV.pdf" class="btn-primary" download>
+					<span>Download CV</span> <span>⬇</span>
+				</a>
+				<a href="#projects" class="btn-secondary">
+					<span class="btn-secondary-circle" class="btn-primary">▶</span>
+					<span>See My Projects</span>
+				</a>
+			</div>
+		</div>
+
+		<div class="hero-visual">
+			<div class="photo-frame">
+				<div class="frame-outer"></div>
+				<div class="frame-inner">
+					<img src="Shalani.jpg" alt="Shalani Nethmini" class="photo">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ABOUT -->
+	<section id="about">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">About <span class="accent">Me</span></div>
+					<div class="section-badge">Who I am</div>
+				</div>
+				<p class="section-subtitle">
+					Final year software engineering student with a strong interest in full‑stack web development
+					and cloud‑based applications.
+				</p>
+			</div>
+
+			<div class="split">
+				<p style="font-size:0.92rem;color:#e5e7eb;">
+					I am currently pursuing a BSc (Hons) in Software Engineering at ICBT Campus Colombo, affiliated with Cardiff Metropolitan University. Through academic projects and self-learning,
+					I have built end-to-end web applications, working on both user-friendly front-end interfaces and secure back-end services.
+				</p>
+				<p style="font-size:0.92rem;color:#e5e7eb;">
+					I enjoy working in teams, experimenting with new technologies, and writing clean, maintainable code. 
+					I am eager to apply my technical skills to real-world projects while continuing to learn and grow in software engineering.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- SKILLS -->
+	<section id="skills">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">My <span class="accent">Skills</span></div>
+					<div class="section-badge">What I use</div>
+				</div>
+				<p class="section-subtitle">Technologies and tools I use most often.</p>
+			</div>
+
+			<div class="grid">
+				<div class="card">
+					<div class="card-icon">{"</div>
+					<h3>Programming</h3>
+					<small>Languages</small>
+					<p>Java, C#, JavaScript, PHP, HTML, CSS</p>
+					<div class="tags">
+						<span class="tag highlight">Java</span>
+						<span class="tag highlight">C#</span>
+						<span class="tag">JavaScript</span>
+						<span class="tag">PHP</span>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">⚙</div>
+					<h3>Frameworks &amp; Platforms</h3>
+					<small>Web &amp; Mobile</small>
+					<p>ASP.NET Core, React, Android Studio, Bootstrap, Responsive Design, UI/UX fundamentals</p>
+					<div class="tags">
+						<span class="tag highlight">ASP.NET Core</span>
+						<span class="tag highlight">React</span>
+						<span class="tag">Bootstrap</span>
+						<span class="tag">Android</span>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">🗄</div>
+					<h3>Databases</h3>
+					<small>Relational</small>
+					<p>MySQL, Microsoft SQL Server</p>
+					<div class="tags">
+						<span class="tag highlight">MySQL</span>
+						<span class="tag highlight">SQL Server</span>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">☁</div>
+					<h3>Tools &amp; Cloud</h3>
+					<small>Development Environment</small>
+					<p>GitHub, Visual Studio Code, Visual Studio, XAMPP, AWS EC2, S3, RDS</p>
+					<div class="tags">
+						<span class="tag">GitHub</span>
+						<span class="tag">VS Code</span>
+						<span class="tag">Visual Studio</span>
+						<span class="tag">AWS</span>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">✨</div>
+					<h3>Soft Skills</h3>
+					<small>How I work</small>
+					<ul>
+						<li>Team collaboration and leadership</li>
+						<li>Adaptability under pressure</li>
+						<li>Effective communication and presentation</li>
+						<li>Fast learning and self‑motivation</li>
+						<li>Creative talents, including singing</li>
+					</ul>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">🌐</div>
+					<h3>Languages</h3>
+					<small>Spoken</small>
+					<ul>
+						<li>English – Fluent</li>
+						<li>Sinhala – Native</li>
+						<li>Tamil – Basic</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- PROJECTS -->
+	<section id="projects">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">Featured <span class="accent">Projects</span></div>
+					<div class="section-badge">What I built</div>
+				</div>
+				<p class="section-subtitle">
+					A few projects that highlight my experience with full‑stack web development.
+				</p>
+			</div>
+
+			<div class="grid">
+				<div class="card">
+    <div class="card-icon">💳</div>
+    <h3>Fraud Detection System</h3>
+    <small>Python + ML + React + Flask + AWS</small>
+    <p>
+        A production-ready system for detecting credit card fraud using machine learning models.
+        The React frontend collects user data, while the Flask backend serves the ML model via API endpoints. 
+        Fully deployable on AWS EC2 with easy syncing via GitHub.
+    </p>
+    <ul>
+        <li>Detects credit card fraud in real-time using ML models.</li>
+        <li>React frontend for user-friendly input and interactions.</li>
+        <li>Flask backend serving ML predictions and API endpoints.</li>
+        <li>Deployed on AWS EC2 with GitHub workflow for syncing local and production code.</li>
+    </ul>
+    <div class="tags">
+        <span class="tag highlight">Python</span>
+        <span class="tag highlight">Machine Learning</span>
+        <span class="tag">React</span>
+        <span class="tag">Flask</span>
+        <span class="tag">AWS EC2</span>
     </div>
-</header>
-
-<section id="home" class="hero">
-    <div>
-        <div class="hero-eyebrow">Hi, I'm Shalani!</div>
-        <h1 class="hero-title">Final Year<br><span>Software Engineering</span> Student</h1>
-        <p class="hero-text">I’m a final-year Software Engineering student passionate about building modern web applications...</p>
-        <div class="hero-meta">
-            <span>📍 295B/1, Aluthgoda, Dikwella, Sri Lanka</span>
-            <span>📧 <a href="mailto:shalaninethmini22@gmail.com">shalaninethmini22@gmail.com</a></span>
-        </div>
-        <div class="hero-actions">
-            <a href="Shalani_Nethmini_CV.pdf" class="btn-primary" download>Download CV ⬇</a>
-            <a href="#projects" class="btn-secondary"><span class="btn-secondary-circle">▶</span>See My Projects</a>
-        </div>
+    <div class="project-actions">
+        <a href="https://github.com/Shalani98/fraud-detection-system.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
     </div>
-    <div class="hero-visual">
-        <div class="photo-frame">
-            <div class="frame-outer"></div>
-            <div class="frame-inner">
-                <img src="Shalani.jpg" alt="Shalani Nethmini" class="photo">
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
-<!-- Projects Section -->
-<section id="projects">
-    <div class="section-inner">
-        <div class="section-header">
-            <div>
-                <div class="section-title">Featured <span class="accent">Projects</span></div>
-                <div class="section-badge">What I built</div>
-            </div>
-            <p class="section-subtitle">A few projects that highlight my experience with full‑stack web development.</p>
-        </div>
+				<div class="card">
+					<div class="card-icon">🔒</div>
+					<h3>Social Media Harassment Tracker</h3>
+					<small>Web Application with Cloud Integration</small>
+					<p>
+						A secure platform to report and manage social media harassment incidents with role‑based
+						access for Victims, Moderators, and Admins.
+					</p>
+					<ul>
+						<li>Complaint submission with image proof and AWS storage.</li>
+						<li>Role‑based workflows and review process.</li>
+						<li>Focus on usability and security.</li>
+					</ul>
+					<div class="tags">
+						<span class="tag highlight">ASP.NET Core</span>
+						<span class="tag highlight">React</span>
+						<span class="tag">AWS EC2</span>
+						<span class="tag">AWS S3</span>
+						<span class="tag">RDS</span>
+					</div>
+                  <div class="project-actions">
+						<a href="https://github.com/Shalani98/SocialMediaHarrassmentTracker.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
+					</div>
+				</div>
 
-        <div class="grid">
-            <!-- Fraud Detection System Card -->
-            <div class="card">
-                <div class="card-icon">💳</div>
-                <h3>Fraud Detection System</h3>
-                <small>Python + ML + React + Flask + AWS</small>
-                <p>A production-ready system for detecting credit card fraud using machine learning models...</p>
-                <ul>
-                    <li>Detects credit card fraud in real-time using ML models.</li>
-                    <li>React frontend for user-friendly input and interactions.</li>
-                    <li>Flask backend serving ML predictions and API endpoints.</li>
-                    <li>Deployed on AWS EC2 with GitHub workflow.</li>
-                </ul>
-                <div class="tags">
-                    <span class="tag highlight">Python</span>
-                    <span class="tag highlight">Machine Learning</span>
-                    <span class="tag">React</span>
-                    <span class="tag">Flask</span>
-                    <span class="tag">AWS EC2</span>
-                </div>
+				<div class="card">
+					<div class="card-icon">🍃</div>
+					<h3>Tea Management System</h3>
+					<small>Full‑stack Web Application</small>
+					<p>
+						A system connecting tea manufacturers, sellers, and customers with product management,
+						order processing, and automatic stock updates.
+					</p>
+					<ul>
+						<li>End‑to‑end order workflows.</li>
+						<li>Automatic stock adjustments.</li>
+						<li>Responsive UI for all users.</li>
+					</ul>
+					<div class="tags">
+						<span class="tag highlight">ASP.NET Core</span>
+						<span class="tag highlight">React</span>
+						<span class="tag">Bootstrap</span>
+						<span class="tag">SQL Server</span>
+					</div>
+                  <div class="project-actions">
+						<a href="https://github.com/Shalani98/TEAManagementSystem.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
+					</div>
+				</div>
 
-                <!-- Video -->
-                <div class="video-frame">
-                    <video controls autoplay muted loop>
-                        <source src="Fraud Detection System.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+				<div class="card">
+					<div class="card-icon">✈</div>
+					<h3>TravelCeylon Tourism System</h3>
+					<small>Final Year Group Project</small>
+					<p>
+						A tourism management platform with dashboards for tourists, tour guides, and hotel managers.
+					</p>
+					<ul>
+						<li>Role‑based dashboards and workflows.</li>
+						<li>Team collaboration on design and development.</li>
+						<li>Clean, responsive layouts.</li>
+					</ul>
+					<div class="tags">
+						<span class="tag highlight">PHP</span>
+						<span class="tag highlight">MySQL</span>
+						<span class="tag">HTML</span>
+						<span class="tag">CSS</span>
+						<span class="tag">JavaScript</span>
+					</div>
+                  <div class="project-actions">
+						<a href="https://github.com/Shalani98/TravelCeylon.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
+					</div>
+				</div>
 
-                <div class="project-actions">
-                    <a href="https://github.com/Shalani98/fraud-detection-system.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
-                </div>
-            </div>
+				<div class="card">
+					<div class="card-icon">🏥</div>
+					<h3>CareCompass Hospital Website</h3>
+					<small>Responsive Hospital Management System</small>
+					<p>
+						A hospital management web app with role‑based access for Admins, Doctors, Patients, Nurses,
+						and Lab Technicians.
+					</p>
+					<ul>
+						<li>Secure authentication and role management.</li>
+						<li>Appointment booking and medical history views.</li>
+						<li>Mobile‑friendly design.</li>
+					</ul>
+					<div class="tags">
+						<span class="tag highlight">PHP</span>
+						<span class="tag highlight">MySQL</span>
+						<span class="tag">Bootstrap</span>
+						<span class="tag">JavaScript</span>
+					</div>
+                  <div class="project-actions">
+						<a href="https://github.com/Shalani98/Hospital-website.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <!-- Social Media Harassment Tracker Card (example) -->
-            <div class="card">
-                <div class="card-icon">🔒</div>
-                <h3>Social Media Harassment Tracker</h3>
-                <small>Web Application with Cloud Integration</small>
-                <p>A secure platform to report and manage social media harassment incidents...</p>
-                <ul>
-                    <li>Complaint submission with image proof and AWS storage.</li>
-                    <li>Role‑based workflows and review process.</li>
-                    <li>Focus on usability and security.</li>
-                </ul>
-                <div class="tags">
-                    <span class="tag highlight">ASP.NET Core</span>
-                    <span class="tag highlight">React</span>
-                    <span class="tag">AWS EC2</span>
-                    <span class="tag">AWS S3</span>
-                    <span class="tag">RDS</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Shalani98/SocialMediaHarrassmentTracker.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+	<!-- EDUCATION -->
+	<section id="education">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">My <span class="accent">Education</span></div>
+					<div class="section-badge">Background</div>
+				</div>
+				
+			</div>
+
+			<div class="grid">
+				<div class="card">
+					<div class="card-icon">🎓</div>
+					<h3>Higher Diploma in Computing &amp; Software Engineering</h3>
+					<small>ICBT Southern Campus · Affiliated with Cardiff Metropolitan University</small>
+					<p>
+						2023 – 2025 (Successfully completed). Studied software engineering principles, web development,
+						databases, and project‑based modules.
+					</p>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+
+	<!-- CONTACT -->
+	<section id="contact">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">Get <span class="accent">In Touch</span></div>
+					<div class="section-badge">Say hello</div>
+				</div>
+				<p class="section-subtitle">
+					Interested in working together or have an opportunity? I’d love to hear from you.
+				</p>
+			</div>
+
+			<div class="contact-grid">
+				<ul class="contact-list">
+					<li><strong>Email:</strong> <a href="mailto:shalaninethmini22@gmail.com">shalaninethmini22@gmail.com</a></li>
+					<li><strong>Phone:</strong> <a href="tel:+94717506979">+94 71 750 6979</a></li>
+					<li><strong>Location:</strong> 295B/1, Aluthgoda ,Dikwella, Sri Lanka</li>
+				</ul>
+				<ul class="contact-list">
+					<li><strong>GitHub:</strong> <a href="https://github.com/Shalani98" target="_blank">github.com/Shalani98</a></li>
+					<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shalani-nethmini-48b845266/" target="_blank">linkedin.com/in/shalani-nethmini-48b845266/</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<p>© 2025 <span>Shalani Nethmini</span> · Portfolio</p>
+	</footer>
+
 </body>
 </html>
