@@ -4,7 +4,6 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Shalani Nethmini | Portfolio</title>
-
 	<style>
 		:root {
 			--bg: #050814;
@@ -26,7 +25,9 @@
 			padding: 0;
 		}
 
-		html { scroll-behavior: smooth; }
+		html {
+			scroll-behavior: smooth;
+		}
 
 		body {
 			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -36,8 +37,12 @@
 			color: var(--text);
 		}
 
-		a { color: inherit; text-decoration: none; }
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
 
+		/* TOP BAR / NAV */
 		.topbar {
 			position: sticky;
 			top: 0;
@@ -56,7 +61,11 @@
 			justify-content: space-between;
 		}
 
-		.brand { display: flex; gap: 0.6rem; align-items: center; }
+		.brand {
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+		}
 
 		.brand-mark {
 			width: 40px;
@@ -68,175 +77,778 @@
 			justify-content: center;
 			color: #022c22;
 			font-weight: 800;
+			font-size: 1.1rem;
+			box-shadow: 0 14px 30px rgba(34, 197, 94, 0.4);
 		}
 
 		.brand-name {
 			font-weight: 700;
+			letter-spacing: 0.08em;
 			text-transform: uppercase;
 			font-size: 0.9rem;
 		}
 
 		.nav-links {
 			display: flex;
+			align-items: center;
 			gap: 1.8rem;
+			font-size: 0.9rem;
 			color: var(--muted);
 		}
 
+		.nav-links a {
+			position: relative;
+			padding-bottom: 0.1rem;
+		}
+
+		.nav-links a::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -0.25rem;
+			width: 0;
+			height: 2px;
+			background: var(--accent-gradient);
+			border-radius: 999px;
+			transition: width 0.18s ease-out;
+		}
+
+		.nav-links a:hover {
+			color: var(--text);
+		}
+
+		.nav-links a:hover::after {
+			width: 100%;
+		}
+
+		.menu-pill {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 42px;
+			height: 32px;
+			border-radius: 0.6rem;
+			background: var(--accent-gradient);
+			color: #022c22;
+			font-size: 1.1rem;
+			font-weight: 700;
+			box-shadow: 0 12px 24px rgba(34, 197, 94, 0.3);
+		}
+
+		/* HERO SECTION */
 		.hero {
 			max-width: 1120px;
-			margin: auto;
-			padding: 4rem 1.5rem;
+			margin: 0 auto;
+			padding: 4.5rem 1.5rem 3.5rem;
 			display: grid;
-			grid-template-columns: 1.4fr 1fr;
+			grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
 			gap: 3rem;
+			align-items: center;
+		}
+
+		@media (max-width: 900px) {
+			.hero {
+				grid-template-columns: 1fr;
+				padding-top: 3rem;
+			}
+		}
+
+		.hero-eyebrow {
+			font-size: 0.9rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: var(--accent);
+			margin-bottom: 0.8rem;
 		}
 
 		.hero-title {
 			font-size: 2.8rem;
+			line-height: 1.1;
 			font-weight: 800;
+			margin-bottom: 0.4rem;
 		}
 
-		.hero-title span { color: var(--accent); }
-
-		.hero-text { color: var(--muted); margin-top: 1rem; }
-
-		.section-inner { max-width: 1120px; margin: auto; padding: 3rem 1.5rem; }
-
-		.section-title { font-size: 1.4rem; font-weight: 700; }
-
-		.accent { color: var(--accent); }
-
-		.grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-			gap: 1.5rem;
+		.hero-title span {
+			color: var(--accent);
 		}
 
-		.card {
-			background: var(--bg-alt);
-			padding: 1.5rem;
-			border-radius: 1rem;
-			border: 1px solid var(--border);
+		.hero-role {
+			font-size: 1.02rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.12em;
+			margin-bottom: 1.1rem;
+			color: #e5e7eb;
 		}
 
-		.card-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+		.hero-text {
+			font-size: 0.95rem;
+			color: var(--muted);
+			max-width: 500px;
+			margin-bottom: 1.6rem;
+		}
 
-		.tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+		.hero-meta {
+			font-size: 0.9rem;
+			color: var(--muted);
+			margin-bottom: 1.8rem;
+		}
+		.hero-meta span {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			margin-right: 1.5rem;
+			margin-bottom: 0.4rem;
+		}
 
-		.tag {
-			font-size: 0.75rem;
-			padding: 0.2rem 0.6rem;
+		.hero-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+
+		.btn-primary {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			background: var(--accent-gradient);
+			color: #022c22;
 			border-radius: 999px;
-			border: 1px solid var(--border);
+			padding: 0.8rem 1.9rem;
+			font-size: 0.92rem;
+			font-weight: 600;
+			border: none;
+			box-shadow: 0 18px 40px rgba(34, 197, 94, 0.35);
+			cursor: pointer;
+			text-decoration: none;
+			transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, filter 0.15s ease-out;
+		}
+		.btn-primary:hover {
+			transform: translateY(-2px);
+			filter: brightness(1.02);
+			box-shadow: 0 22px 50px rgba(34, 197, 94, 0.45);
+		}
+
+		.btn-secondary {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.6rem;
+			color: var(--text);
+			font-size: 0.92rem;
+			font-weight: 500;
+			cursor: pointer;
+		}
+
+		.btn-secondary-circle {
+			width: 38px;
+			height: 38px;
+			border-radius: 999px;
+			border: 2px solid var(--accent);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--accent);
+		}
+
+		/* HERO IMAGE */
+		.hero-visual {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.photo-frame {
+			position: relative;
+			width: min(320px, 80vw);
+			aspect-ratio: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.frame-outer {
+			position: absolute;
+			inset: 0;
+			border-radius: 30% / 26%;
+			border: 10px solid var(--accent);
+			box-shadow: var(--shadow-strong);
+		}
+
+		.frame-inner {
+			position: absolute;
+			inset: 18px;
+			border-radius: 30% / 26%;
+			background: #020617;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+
+		.photo {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		/* SECTIONS */
+		section {
+			padding: 3.2rem 1.5rem;
+		}
+
+		.section-inner {
+			max-width: 1120px;
+			margin: 0 auto;
+		}
+
+		.section-header {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 1rem;
+			margin-bottom: 1.8rem;
+		}
+
+		.section-title {
+			font-size: 1.4rem;
+			font-weight: 700;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		.section-title span.accent {
+			color: var(--accent);
+		}
+		.section-badge {
+			font-size: 0.7rem;
+			text-transform: uppercase;
+			letter-spacing: 0.16em;
 			color: var(--muted);
 		}
 
-		.btn-github {
-			display: inline-block;
-			margin-top: 1rem;
-			padding: 0.5rem 1rem;
-			border-radius: 999px;
-			border: 1px solid var(--border);
-			color: var(--text);
+		.section-subtitle {
+			font-size: 0.9rem;
+			color: var(--muted);
+			max-width: 520px;
 		}
 
-		.video-frame {
-			margin-top: 1rem;
-			border-radius: 0.6rem;
+		/* helper for two-column blocks */
+		.split {
+			display: grid;
+			grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+			gap: 1.8rem;
+		}
+
+		/* GRIDS / CARDS */
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1.8rem;
+		}
+
+		.card {
+			position: relative;
+			background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.09), var(--bg-alt));
+			border-radius: 1rem;
+			padding: 1.6rem 1.6rem 1.5rem;
+			border: 1px solid rgba(15, 23, 42, 0.9);
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
 			overflow: hidden;
+		}
+
+		.card::before {
+			content: "";
+			position: absolute;
+			inset: -40%;
+			background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 55%);
+			opacity: 0;
+			transition: opacity 0.18s ease-out;
+			pointer-events: none;
+		}
+
+		.card:hover::before {
+			opacity: 1;
+		}
+
+		.card:hover {
+			transform: translateY(-4px);
+			transition: transform 0.18s ease-out, border-color 0.18s ease-out;
+			border-color: rgba(34, 197, 94, 0.7);
+		}
+
+		.card-icon {
+			width: 34px;
+			height: 34px;
+			border-radius: 0.5rem;
+			background: rgba(15, 23, 42, 0.9);
+			border: 1px solid rgba(34, 197, 94, 0.4);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--accent);
+			font-size: 1rem;
+			margin-bottom: 0.7rem;
+		}
+
+		.card h3 {
+			font-size: 1.02rem;
+			margin-bottom: 0.2rem;
+		}
+
+		.card small {
+			display: block;
+			color: var(--muted);
+			margin-bottom: 0.55rem;
+			font-size: 0.8rem;
+		}
+
+		.card p,
+		.card ul {
+			font-size: 0.9rem;
+			color: #e5e7eb;
+		}
+
+		.card ul {
+			list-style: disc inside;
+			margin-top: 0.3rem;
+		}
+
+		.tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.35rem;
+			margin-top: 0.7rem;
+		}
+
+		.tag {
+			font-size: 0.75rem;
+			padding: 0.18rem 0.65rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			color: var(--muted);
+			background: rgba(15, 23, 42, 0.9);
+		}
+
+		.tag.highlight {
+			border-color: var(--accent);
+			color: #bbf7d0;
+		}
+
+		/* CONTACT */
+		.contact-grid {
+			display: grid;
+			grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
+			gap: 1.8rem;
+		}
+		.contact-list {
+			list-style: none;
+			font-size: 0.9rem;
+			color: #e5e7eb;
+		}
+		.contact-list li {
+			margin-bottom: 0.5rem;
+		}
+		.contact-list strong {
+			color: var(--muted);
+		}
+
+		footer {
+			text-align: center;
+			padding: 2rem 1.5rem 2.4rem;
+			color: var(--muted);
+			border-top: 1px solid rgba(15, 23, 42, 0.9);
+			font-size: 0.85rem;
+		}
+		footer span {
+			color: var(--accent);
+		}
+
+		@media (max-width: 640px) {
+			.topbar-inner {
+				padding-inline: 1rem;
+			}
+			.hero {
+				padding-inline: 1rem;
+			}
+			section {
+				padding-inline: 1rem;
+			}
+			.nav-links {
+				display: none;
+			}
+			.section-header {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			.split,
+			.contact-grid {
+				grid-template-columns: 1fr;
+			}
+      	.btn-project.btn-github {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.9);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.55rem 1.2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.18s ease-out;
+}
+
+.btn-project.btn-github:hover {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
 		}
 	</style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-	<div>
-		<h1 class="hero-title">Final Year <span>Software Engineering</span> Student</h1>
-		<p class="hero-text">
-			I build full-stack applications using modern technologies like React, Spring Boot, ASP.NET Core, and ML.
-		</p>
-	</div>
-</section>
+	<!-- TOP BAR -->
+	<header class="topbar">
+		<div class="topbar-inner">
+			<div class="brand">
+				<div class="brand-mark">SN</div>
+				<div class="brand-name">Shalani</div>
+			</div>
+			<nav class="nav-links">
+				<a href="#home">Home</a>
+				<a href="#about">About</a>
+				<a href="#skills">Skills</a>
+				<a href="#projects">Projects</a>
+				<a href="#education">Education</a>
+				<a href="#contact">Contact</a>
+			</nav>
+			
+		</div>
+	</header>
 
-<!-- PROJECTS -->
-<section id="projects">
-	<div class="section-inner">
-		<div class="section-title">Featured <span class="accent">Projects</span></div>
+	<!-- HERO -->
+	<section id="home" class="hero">
+		<div>
+			<div class="hero-eyebrow">Hi, I'm Shalani!</div>
+			<h1 class="hero-title">Final Year<br><span>Software Engineering</span> Student</h1>
+		
+			<p class="hero-text">
+				I’m a final-year Software Engineering student passionate about building modern web applications. 
+				With  experience in ASP.NET Core, React, PHP, SQL, and cloud integration, 
+				I enjoy turning real-world problems into clean, user-friendly digital products.
+			</p>
+			<div class="hero-meta">
+				<span>📍 295B/1, Aluthgoda ,Dikwella, Sri Lanka</span>
+				<span>📧 <a href="mailto:shalaninethmini22@gmail.com">shalaninethmini22@gmail.com</a></span>
+			</div>
+			<div class="hero-actions">
+				<a href="Shalani_Nethmini_CV.pdf" class="btn-primary" download>
+					<span>Download CV</span> <span>⬇</span>
+				</a>
+				<a href="#projects" class="btn-secondary">
+					<span class="btn-secondary-circle" class="btn-primary">▶</span>
+					<span>See My Projects</span>
+				</a>
+			</div>
+		</div>
 
+		<div class="hero-visual">
+			<div class="photo-frame">
+				<div class="frame-outer"></div>
+				<div class="frame-inner">
+					<img src="Shalani.jpg" alt="Shalani Nethmini" class="photo">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ABOUT -->
+	<section id="about">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">About <span class="accent">Me</span></div>
+					<div class="section-badge">Who I am</div>
+				</div>
+				<p class="section-subtitle">
+					Final year software engineering student with a strong interest in full‑stack web development
+					and cloud‑based applications.
+				</p>
+			</div>
+
+			<div class="split">
+				<p style="font-size:0.92rem;color:#e5e7eb;">
+					I am currently pursuing a BSc (Hons) in Software Engineering at ICBT Campus Colombo, affiliated with Cardiff Metropolitan University. Through academic projects and self-learning,
+					I have built end-to-end web applications, working on both user-friendly front-end interfaces and secure back-end services.
+				</p>
+				<p style="font-size:0.92rem;color:#e5e7eb;">
+					I enjoy working in teams, experimenting with new technologies, and writing clean, maintainable code. 
+					I am eager to apply my technical skills to real-world projects while continuing to learn and grow in software engineering.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- SKILLS -->
+	<section id="skills">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">My <span class="accent">Skills</span></div>
+					<div class="section-badge">What I use</div>
+				</div>
+				<p class="section-subtitle">Technologies and tools I use most often.</p>
+			</div>
+
+			<div class="grid">
+				<div class="card">
+					<div class="card-icon">{"</div>
+					<h3>Programming</h3>
+					<small>Languages</small>
+					<p>Java, C#, JavaScript, PHP, HTML, CSS</p>
+					<div class="tags">
+						<span class="tag highlight">Java</span>
+						<span class="tag highlight">C#</span>
+						<span class="tag">JavaScript</span>
+						<span class="tag">PHP</span>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">⚙</div>
+					<h3>Frameworks &amp; Platforms</h3>
+					<small>Web &amp; Mobile</small>
+					<p>ASP.NET Core, React, Android Studio, Bootstrap, Responsive Design, UI/UX fundamentals</p>
+					<div class="tags">
+						<span class="tag highlight">ASP.NET Core</span>
+						<span class="tag highlight">React</span>
+						<span class="tag">Bootstrap</span>
+						<span class="tag">Android</span>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">🗄</div>
+					<h3>Databases</h3>
+					<small>Relational</small>
+					<p>MySQL, Microsoft SQL Server</p>
+					<div class="tags">
+						<span class="tag highlight">MySQL</span>
+						<span class="tag highlight">SQL Server</span>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">☁</div>
+					<h3>Tools &amp; Cloud</h3>
+					<small>Development Environment</small>
+					<p>GitHub, Visual Studio Code, Visual Studio, XAMPP, AWS EC2, S3, RDS</p>
+					<div class="tags">
+						<span class="tag">GitHub</span>
+						<span class="tag">VS Code</span>
+						<span class="tag">Visual Studio</span>
+						<span class="tag">AWS</span>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">✨</div>
+					<h3>Soft Skills</h3>
+					<small>How I work</small>
+					<ul>
+						<li>Team collaboration and leadership</li>
+						<li>Adaptability under pressure</li>
+						<li>Effective communication and presentation</li>
+						<li>Fast learning and self‑motivation</li>
+						<li>Creative talents, including singing</li>
+					</ul>
+				</div>
+
+				<div class="card">
+					<div class="card-icon">🌐</div>
+					<h3>Languages</h3>
+					<small>Spoken</small>
+					<ul>
+						<li>English – Fluent</li>
+						<li>Sinhala – Native</li>
+						<li>Tamil – Basic</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- PROJECTS -->
+	<section id="projects">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">Featured <span class="accent">Projects</span></div>
+					<div class="section-badge">What I built</div>
+				</div>
+				<p class="section-subtitle">
+					A few projects that highlight my experience with full‑stack web development.
+				</p>
+			</div>
+
+			
 		<div class="grid">
 
-			<!-- EXISTING PROJECTS -->
+	<!-- ALL YOUR EXISTING PROJECTS (UNCHANGED) -->
 
-			<div class="card">
-				<div class="card-icon">💳</div>
-				<h3>Fraud Detection System</h3>
+	<div class="card">
+		<div class="card-icon">💳</div>
+		<h3>Fraud Detection System</h3>
+		<small>Python + ML + React + Flask + AWS</small>
 
-				<div class="video-frame">
-					<video controls width="100%">
-						<source src="Fraud Detection System.mp4">
-					</video>
-				</div>
+		<div class="video-frame" style="margin-top:1rem; border-radius:0.6rem; overflow:hidden;">
+			<video controls autoplay muted loop width="100%">
+				<source src="Fraud Detection System.mp4">
+			</video>
+		</div>
 
-				<a class="btn-github" href="https://github.com/Shalani98/fraud-detection-system">GitHub</a>
-			</div>
-
-			<div class="card">
-				<div class="card-icon">🔒</div>
-				<h3>Social Media Harassment Tracker</h3>
-				<a class="btn-github" href="https://github.com/Shalani98/SocialMediaHarrassmentTracker">GitHub</a>
-			</div>
-
-			<div class="card">
-				<div class="card-icon">🍃</div>
-				<h3>Tea Management System</h3>
-				<a class="btn-github" href="https://github.com/Shalani98/TEAManagementSystem">GitHub</a>
-			</div>
-
-			<div class="card">
-				<div class="card-icon">✈</div>
-				<h3>TravelCeylon System</h3>
-				<a class="btn-github" href="https://github.com/Shalani98/TravelCeylon">GitHub</a>
-			</div>
-
-			<div class="card">
-				<div class="card-icon">🏥</div>
-				<h3>CareCompass Hospital</h3>
-				<a class="btn-github" href="https://github.com/Shalani98/Hospital-website">GitHub</a>
-			</div>
-
-			<!-- NEW PROJECTS -->
-
-			<div class="card">
-				<div class="card-icon">🍽</div>
-				<h3>Food Sharing System</h3>
-
-				<div class="video-frame">
-					<video controls width="100%">
-						<source src="foodsharingsystem.mp4">
-					</video>
-				</div>
-
-				<a class="btn-github" href="https://github.com/Shalani98/FoodSharingSystem">GitHub</a>
-			</div>
-
-			<div class="card">
-				<div class="card-icon">💰</div>
-				<h3>POS System</h3>
-
-				<div class="video-frame">
-					<video controls width="100%">
-						<source src="POS System.mp4">
-					</video>
-				</div>
-
-				<a class="btn-github" href="https://github.com/Shalani98/POS-System">GitHub</a>
-			</div>
-
+		<div class="project-actions" style="margin-top:1rem;">
+			<a href="https://github.com/Shalani98/fraud-detection-system.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
 		</div>
 	</div>
-</section>
+
+	<div class="card">
+		<div class="card-icon">🔒</div>
+		<h3>Social Media Harassment Tracker</h3>
+		<small>Web Application with Cloud Integration</small>
+
+		<div class="project-actions">
+			<a href="https://github.com/Shalani98/SocialMediaHarrassmentTracker.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="card-icon">🍃</div>
+		<h3>Tea Management System</h3>
+
+		<div class="project-actions">
+			<a href="https://github.com/Shalani98/TEAManagementSystem.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="card-icon">✈</div>
+		<h3>TravelCeylon Tourism System</h3>
+
+		<div class="project-actions">
+			<a href="https://github.com/Shalani98/TravelCeylon.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="card-icon">🏥</div>
+		<h3>CareCompass Hospital Website</h3>
+
+		<div class="project-actions">
+			<a href="https://github.com/Shalani98/Hospital-website.git" target="_blank" class="btn-project btn-github">View on GitHub</a>
+		</div>
+	</div>
+
+	<!-- ✅ NEW PROJECT ADDED (FOOD SHARING) -->
+	<div class="card">
+		<div class="card-icon">🍽</div>
+		<h3>Food Sharing System</h3>
+		<small>Spring Boot Full Stack Project</small>
+
+		<p>A system to share excess food and reduce food waste in communities.</p>
+
+		<div class="video-frame" style="margin-top:1rem; border-radius:0.6rem; overflow:hidden;">
+			<video controls muted width="100%">
+				<source src="foodsharingsystem.mp4">
+			</video>
+		</div>
+
+		<div class="project-actions" style="margin-top:1rem;">
+			<a href="https://github.com/Shalani98/FoodSharingSystem" target="_blank" class="btn-project btn-github">View on GitHub</a>
+		</div>
+	</div>
+
+	<!-- ✅ NEW PROJECT ADDED (POS SYSTEM) -->
+	<div class="card">
+		<div class="card-icon">💰</div>
+		<h3>POS System</h3>
+		<small>Spring Boot / Java / MySQL</small>
+
+		<p>Point of Sale system for managing billing, inventory, and sales operations.</p>
+
+		<div class="video-frame" style="margin-top:1rem; border-radius:0.6rem; overflow:hidden;">
+			<video controls muted width="100%">
+				<source src="POS System.mp4">
+			</video>
+		</div>
+
+		<div class="project-actions" style="margin-top:1rem;">
+			<a href="https://github.com/Shalani98/POS-System" target="_blank" class="btn-project btn-github">View on GitHub</a>
+		</div>
+	</div>
+
+</div>
+	</section>
+
+	<!-- EDUCATION -->
+	<section id="education">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">My <span class="accent">Education</span></div>
+					<div class="section-badge">Background</div>
+				</div>
+				
+			</div>
+
+			<div class="grid">
+				<div class="card">
+					<div class="card-icon">🎓</div>
+					<h3>Higher Diploma in Computing &amp; Software Engineering</h3>
+					<small>ICBT Southern Campus · Affiliated with Cardiff Metropolitan University</small>
+					<p>
+						2023 – 2025 (Successfully completed). Studied software engineering principles, web development,
+						databases, and project‑based modules.
+					</p>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+
+	<!-- CONTACT -->
+	<section id="contact">
+		<div class="section-inner">
+			<div class="section-header">
+				<div>
+					<div class="section-title">Get <span class="accent">In Touch</span></div>
+					<div class="section-badge">Say hello</div>
+				</div>
+				<p class="section-subtitle">
+					Interested in working together or have an opportunity? I’d love to hear from you.
+				</p>
+			</div>
+
+			<div class="contact-grid">
+				<ul class="contact-list">
+					<li><strong>Email:</strong> <a href="mailto:shalaninethmini22@gmail.com">shalaninethmini22@gmail.com</a></li>
+					<li><strong>Phone:</strong> <a href="tel:+94717506979">+94 71 750 6979</a></li>
+					<li><strong>Location:</strong> 295B/1, Aluthgoda ,Dikwella, Sri Lanka</li>
+				</ul>
+				<ul class="contact-list">
+					<li><strong>GitHub:</strong> <a href="https://github.com/Shalani98" target="_blank">github.com/Shalani98</a></li>
+					<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shalani-nethmini-48b845266/" target="_blank">linkedin.com/in/shalani-nethmini-48b845266/</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<p>© 2025 <span>Shalani Nethmini</span> · Portfolio</p>
+	</footer>
 
 </body>
 </html>
