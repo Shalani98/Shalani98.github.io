@@ -1,478 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shalani Nethmini | Portfolio</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Shalani Nethmini | Portfolio</title>
 
-  <style>
-    :root {
-      --bg: #050814;
-      --bg-alt: #060b1a;
-      --accent: #22c55e;
-      --accent-gradient: linear-gradient(135deg, #22c55e, #4ade80);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --border: rgba(148, 163, 184, 0.4);
-    }
+	<style>
+		:root {
+			--bg: #050814;
+			--bg-alt: #060b1a;
+			--accent: #22c55e;
+			--accent-soft: rgba(34, 197, 94, 0.15);
+			--accent-dark: #16a34a;
+			--accent-gradient: linear-gradient(135deg, #22c55e, #4ade80);
+			--text: #f9fafb;
+			--muted: #9ca3af;
+			--card: #020617;
+			--border: rgba(148, 163, 184, 0.4);
+			--shadow-strong: 0 24px 60px rgba(0, 0, 0, 0.7);
+		}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #020617;
-      color: var(--text);
-      line-height: 1.6;
-    }
+		html { scroll-behavior: smooth; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+		body {
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			background:
+				radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 60%),
+				linear-gradient(180deg, #020617 0%, #020617 50%, #020617 100%);
+			color: var(--text);
+		}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+		a { color: inherit; text-decoration: none; }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      background: rgba(5, 8, 20, 0.95);
-      padding: 1rem 2rem;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
+		.topbar {
+			position: sticky;
+			top: 0;
+			z-index: 40;
+			background: rgba(5, 8, 20, 0.96);
+			backdrop-filter: blur(16px);
+			border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+		}
 
-    .topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-    }
+		.topbar-inner {
+			max-width: 1120px;
+			margin: 0 auto;
+			padding: 0.8rem 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
+		.brand { display: flex; gap: 0.6rem; align-items: center; }
 
-    .brand-mark {
-      width: 45px;
-      height: 45px;
-      border-radius: 12px;
-      background: var(--accent-gradient);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: #022c22;
-    }
+		.brand-mark {
+			width: 40px;
+			height: 40px;
+			border-radius: 0.6rem;
+			background: var(--accent-gradient);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #022c22;
+			font-weight: 800;
+		}
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      color: var(--muted);
-    }
+		.brand-name {
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 0.9rem;
+		}
 
-    .nav-links a:hover {
-      color: white;
-    }
+		.nav-links {
+			display: flex;
+			gap: 1.8rem;
+			color: var(--muted);
+		}
 
-    section {
-      padding: 4rem 2rem;
-    }
+		.hero {
+			max-width: 1120px;
+			margin: auto;
+			padding: 4rem 1.5rem;
+			display: grid;
+			grid-template-columns: 1.4fr 1fr;
+			gap: 3rem;
+		}
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
+		.hero-title {
+			font-size: 2.8rem;
+			font-weight: 800;
+		}
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      min-height: 90vh;
-    }
+		.hero-title span { color: var(--accent); }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+		.hero-text { color: var(--muted); margin-top: 1rem; }
 
-    .hero span {
-      color: var(--accent);
-    }
+		.section-inner { max-width: 1120px; margin: auto; padding: 3rem 1.5rem; }
 
-    .hero p {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
+		.section-title { font-size: 1.4rem; font-weight: 700; }
 
-    .btn {
-      display: inline-block;
-      background: var(--accent-gradient);
-      color: #022c22;
-      padding: 0.9rem 1.5rem;
-      border-radius: 999px;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
+		.accent { color: var(--accent); }
 
-    .photo {
-      width: 100%;
-      max-width: 350px;
-      border-radius: 30px;
-      border: 6px solid var(--accent);
-    }
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1.5rem;
+		}
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
+		.card {
+			background: var(--bg-alt);
+			padding: 1.5rem;
+			border-radius: 1rem;
+			border: 1px solid var(--border);
+		}
 
-    .section-title span {
-      color: var(--accent);
-    }
+		.card-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
+		.tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
 
-    .card {
-      background: var(--bg-alt);
-      border-radius: 20px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: 0.3s;
-    }
+		.tag {
+			font-size: 0.75rem;
+			padding: 0.2rem 0.6rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			color: var(--muted);
+		}
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-    }
+		.btn-github {
+			display: inline-block;
+			margin-top: 1rem;
+			padding: 0.5rem 1rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			color: var(--text);
+		}
 
-    .card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .card small {
-      color: var(--muted);
-    }
-
-    .card p {
-      margin-top: 1rem;
-      color: #e5e7eb;
-    }
-
-    .card ul {
-      margin-top: 1rem;
-      padding-left: 1rem;
-    }
-
-    .card li {
-      margin-bottom: 0.5rem;
-      color: #d1d5db;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .tag {
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      font-size: 0.8rem;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .highlight {
-      border-color: var(--accent);
-      color: #bbf7d0;
-    }
-
-    .video-frame {
-      margin-top: 1rem;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    }
-
-    .github-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.7rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      transition: 0.3s;
-    }
-
-    .github-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    @media(max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .photo {
-        margin: auto;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+		.video-frame {
+			margin-top: 1rem;
+			border-radius: 0.6rem;
+			overflow: hidden;
+		}
+	</style>
 </head>
+
 <body>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <div class="brand-mark">SN</div>
-      <h3>Shalani</h3>
-    </div>
-
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section id="home">
-  <div class="container hero">
-
-    <div>
-      <h1>Final Year <br><span>Software Engineering</span> Student</h1>
-
-      <p>
-        I’m a final-year Software Engineering student passionate about building modern web applications.
-        With experience in Spring Boot, ASP.NET Core, React, Flask, cloud deployment, and full-stack web development,
-        I enjoy turning real-world problems into clean, user-friendly digital products.
-      </p>
-
-      <a href="#projects" class="btn">See My Projects</a>
-    </div>
-
-    <div style="text-align:center;">
-      <img src="Shalani.jpg" class="photo" alt="Shalani" />
-    </div>
-
-  </div>
+<!-- HERO -->
+<section class="hero">
+	<div>
+		<h1 class="hero-title">Final Year <span>Software Engineering</span> Student</h1>
+		<p class="hero-text">
+			I build full-stack applications using modern technologies like React, Spring Boot, ASP.NET Core, and ML.
+		</p>
+	</div>
 </section>
 
-<section id="skills">
-  <div class="container">
-
-    <h2 class="section-title">Technical <span>Skills</span></h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>Programming Languages</h3>
-        <p>Java, Python, C#, JavaScript, PHP, HTML, CSS</p>
-
-        <div class="tags">
-          <span class="tag highlight">Java</span>
-          <span class="tag highlight">Python</span>
-          <span class="tag">C#</span>
-          <span class="tag">JavaScript</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Frameworks & Platforms</h3>
-        <p>Spring Boot, ASP.NET Core, React, Flask, Bootstrap, Hibernate, REST APIs</p>
-
-        <div class="tags">
-          <span class="tag highlight">Spring Boot</span>
-          <span class="tag highlight">React</span>
-          <span class="tag">Flask</span>
-          <span class="tag">REST APIs</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Tools & Cloud</h3>
-        <p>Git, GitHub, Docker, GitHub Actions, AWS EC2, Railway, Postman</p>
-
-        <div class="tags">
-          <span class="tag">Docker</span>
-          <span class="tag">AWS</span>
-          <span class="tag">Railway</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+<!-- PROJECTS -->
 <section id="projects">
-  <div class="container">
+	<div class="section-inner">
+		<div class="section-title">Featured <span class="accent">Projects</span></div>
 
-    <h2 class="section-title">Featured <span>Projects</span></h2>
+		<div class="grid">
 
-    <div class="grid">
+			<!-- EXISTING PROJECTS -->
 
-      <div class="card">
-        <h3>Fraud Detection System</h3>
-        <small>Python + ML + React + Flask + AWS</small>
+			<div class="card">
+				<div class="card-icon">💳</div>
+				<h3>Fraud Detection System</h3>
 
-        <p>
-          A production-ready machine learning system for detecting credit card fraud using Flask APIs and React frontend.
-        </p>
+				<div class="video-frame">
+					<video controls width="100%">
+						<source src="Fraud Detection System.mp4">
+					</video>
+				</div>
 
-        <div class="video-frame">
-          <video controls autoplay muted loop width="100%">
-            <source src="Fraud Detection System.mp4" type="video/mp4">
-          </video>
-        </div>
+				<a class="btn-github" href="https://github.com/Shalani98/fraud-detection-system">GitHub</a>
+			</div>
 
-        <ul>
-          <li>Real-time fraud detection using ML models.</li>
-          <li>Flask backend API integration.</li>
-          <li>AWS EC2 deployment.</li>
-        </ul>
+			<div class="card">
+				<div class="card-icon">🔒</div>
+				<h3>Social Media Harassment Tracker</h3>
+				<a class="btn-github" href="https://github.com/Shalani98/SocialMediaHarrassmentTracker">GitHub</a>
+			</div>
 
-        <div class="tags">
-          <span class="tag highlight">Python</span>
-          <span class="tag">React</span>
-          <span class="tag">AWS</span>
-        </div>
+			<div class="card">
+				<div class="card-icon">🍃</div>
+				<h3>Tea Management System</h3>
+				<a class="btn-github" href="https://github.com/Shalani98/TEAManagementSystem">GitHub</a>
+			</div>
 
-        <a href="https://github.com/Shalani98/fraud-detection-system.git" class="github-btn" target="_blank">View on GitHub</a>
-      </div>
+			<div class="card">
+				<div class="card-icon">✈</div>
+				<h3>TravelCeylon System</h3>
+				<a class="btn-github" href="https://github.com/Shalani98/TravelCeylon">GitHub</a>
+			</div>
 
-      <div class="card">
-        <h3>Food Sharing System</h3>
-        <small>Spring Boot Full-Stack Web Application</small>
+			<div class="card">
+				<div class="card-icon">🏥</div>
+				<h3>CareCompass Hospital</h3>
+				<a class="btn-github" href="https://github.com/Shalani98/Hospital-website">GitHub</a>
+			</div>
 
-        <p>
-          A food donation and sharing platform that connects donors and receivers to reduce food waste.
-        </p>
+			<!-- NEW PROJECTS -->
 
-        <div class="video-frame">
-          <video controls autoplay muted loop width="100%">
-            <source src="food-sharing-system.mp4" type="video/mp4">
-          </video>
-        </div>
+			<div class="card">
+				<div class="card-icon">🍽</div>
+				<h3>Food Sharing System</h3>
 
-        <ul>
-          <li>Spring Boot REST APIs.</li>
-          <li>Image upload handling.</li>
-          <li>MySQL integration with Hibernate.</li>
-          <li>Authentication and admin management.</li>
-        </ul>
+				<div class="video-frame">
+					<video controls width="100%">
+						<source src="foodsharingsystem.mp4">
+					</video>
+				</div>
 
-        <div class="tags">
-          <span class="tag highlight">Spring Boot</span>
-          <span class="tag">Java</span>
-          <span class="tag">Hibernate</span>
-          <span class="tag">MySQL</span>
-        </div>
+				<a class="btn-github" href="https://github.com/Shalani98/FoodSharingSystem">GitHub</a>
+			</div>
 
-        <a href="https://github.com/Shalani98" class="github-btn" target="_blank">View on GitHub</a>
-      </div>
+			<div class="card">
+				<div class="card-icon">💰</div>
+				<h3>POS System</h3>
 
-      <div class="card">
-        <h3>POS System</h3>
-        <small>Flask + Docker + CI/CD</small>
+				<div class="video-frame">
+					<video controls width="100%">
+						<source src="POS System.mp4">
+					</video>
+				</div>
 
-        <p>
-          A Point of Sale system with Docker deployment, CI/CD workflows, and Railway cloud hosting.
-        </p>
+				<a class="btn-github" href="https://github.com/Shalani98/POS-System">GitHub</a>
+			</div>
 
-        <div class="video-frame">
-          <video controls autoplay muted loop width="100%">
-            <source src="pos-system.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <ul>
-          <li>Inventory and sales management.</li>
-          <li>Docker containerization.</li>
-          <li>GitHub Actions CI/CD.</li>
-          <li>Railway cloud deployment.</li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag highlight">Flask</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Railway</span>
-          <span class="tag">GitHub Actions</span>
-        </div>
-
-        <a href="https://github.com/Shalani98/POS-System" class="github-btn" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="card">
-        <h3>Social Media Harassment Tracker</h3>
-        <small>ASP.NET Core + React + AWS</small>
-
-        <p>
-          A secure role-based platform for reporting and managing social media harassment incidents.
-        </p>
-
-        <ul>
-          <li>Complaint workflows and moderation.</li>
-          <li>Role-based access control.</li>
-          <li>AWS cloud integration.</li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag highlight">ASP.NET Core</span>
-          <span class="tag">React</span>
-          <span class="tag">AWS</span>
-        </div>
-
-        <a href="https://github.com/Shalani98/SocialMediaHarrassmentTracker.git" class="github-btn" target="_blank">View on GitHub</a>
-      </div>
-
-    </div>
-  </div>
+		</div>
+	</div>
 </section>
-
-<section id="contact">
-  <div class="container">
-
-    <h2 class="section-title">Get In <span>Touch</span></h2>
-
-    <p>Email: shalaninethmini22@gmail.com</p>
-    <p>GitHub: github.com/Shalani98</p>
-    <p>LinkedIn: linkedin.com/in/shalani-nethmini-48b845266</p>
-
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Shalani Nethmini | Portfolio</p>
-</footer>
 
 </body>
 </html>
