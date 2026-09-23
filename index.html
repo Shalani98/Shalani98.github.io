@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Shalani Nethmini | Portfolio</title>
+
 	<style>
 		:root {
 			--bg: #050814;
@@ -42,7 +44,10 @@
 			text-decoration: none;
 		}
 
-		/* TOP BAR / NAV */
+		/* =========================
+		   TOP BAR / NAVIGATION
+		========================= */
+
 		.topbar {
 			position: sticky;
 			top: 0;
@@ -121,21 +126,10 @@
 			width: 100%;
 		}
 
-		.menu-pill {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			width: 42px;
-			height: 32px;
-			border-radius: 0.6rem;
-			background: var(--accent-gradient);
-			color: #022c22;
-			font-size: 1.1rem;
-			font-weight: 700;
-			box-shadow: 0 12px 24px rgba(34, 197, 94, 0.3);
-		}
+		/* =========================
+		   HERO SECTION
+		========================= */
 
-		/* HERO SECTION */
 		.hero {
 			max-width: 1120px;
 			margin: 0 auto;
@@ -144,13 +138,6 @@
 			grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
 			gap: 3rem;
 			align-items: center;
-		}
-
-		@media (max-width: 900px) {
-			.hero {
-				grid-template-columns: 1fr;
-				padding-top: 3rem;
-			}
 		}
 
 		.hero-eyebrow {
@@ -184,8 +171,9 @@
 
 		.hero-text {
 			font-size: 0.95rem;
+			line-height: 1.7;
 			color: var(--muted);
-			max-width: 500px;
+			max-width: 550px;
 			margin-bottom: 1.6rem;
 		}
 
@@ -194,6 +182,7 @@
 			color: var(--muted);
 			margin-bottom: 1.8rem;
 		}
+
 		.hero-meta span {
 			display: inline-flex;
 			align-items: center;
@@ -222,8 +211,11 @@
 			box-shadow: 0 18px 40px rgba(34, 197, 94, 0.35);
 			cursor: pointer;
 			text-decoration: none;
-			transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, filter 0.15s ease-out;
+			transition: transform 0.15s ease-out,
+						box-shadow 0.15s ease-out,
+						filter 0.15s ease-out;
 		}
+
 		.btn-primary:hover {
 			transform: translateY(-2px);
 			filter: brightness(1.02);
@@ -251,7 +243,10 @@
 			color: var(--accent);
 		}
 
-		/* HERO IMAGE */
+		/* =========================
+		   HERO IMAGE
+		========================= */
+
 		.hero-visual {
 			display: flex;
 			align-items: center;
@@ -292,7 +287,10 @@
 			object-fit: cover;
 		}
 
-		/* SECTIONS */
+		/* =========================
+		   SECTIONS
+		========================= */
+
 		section {
 			padding: 3.2rem 1.5rem;
 		}
@@ -317,9 +315,11 @@
 			align-items: center;
 			gap: 0.5rem;
 		}
+
 		.section-title span.accent {
 			color: var(--accent);
 		}
+
 		.section-badge {
 			font-size: 0.7rem;
 			text-transform: uppercase;
@@ -329,27 +329,39 @@
 
 		.section-subtitle {
 			font-size: 0.9rem;
+			line-height: 1.6;
 			color: var(--muted);
 			max-width: 520px;
 		}
 
-		/* helper for two-column blocks */
+		/* =========================
+		   LAYOUT / GRIDS
+		========================= */
+
 		.split {
 			display: grid;
 			grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
 			gap: 1.8rem;
 		}
 
-		/* GRIDS / CARDS */
 		.grid {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 			gap: 1.8rem;
 		}
 
+		/* =========================
+		   CARDS
+		========================= */
+
 		.card {
 			position: relative;
-			background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.09), var(--bg-alt));
+			background:
+				radial-gradient(
+					circle at top left,
+					rgba(34, 197, 94, 0.09),
+					var(--bg-alt)
+				);
 			border-radius: 1rem;
 			padding: 1.6rem 1.6rem 1.5rem;
 			border: 1px solid rgba(15, 23, 42, 0.9);
@@ -361,7 +373,12 @@
 			content: "";
 			position: absolute;
 			inset: -40%;
-			background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 55%);
+			background:
+				radial-gradient(
+					circle at top right,
+					rgba(34, 197, 94, 0.12),
+					transparent 55%
+				);
 			opacity: 0;
 			transition: opacity 0.18s ease-out;
 			pointer-events: none;
@@ -373,7 +390,8 @@
 
 		.card:hover {
 			transform: translateY(-4px);
-			transition: transform 0.18s ease-out, border-color 0.18s ease-out;
+			transition: transform 0.18s ease-out,
+						border-color 0.18s ease-out;
 			border-color: rgba(34, 197, 94, 0.7);
 		}
 
@@ -401,11 +419,13 @@
 			color: var(--muted);
 			margin-bottom: 0.55rem;
 			font-size: 0.8rem;
+			line-height: 1.5;
 		}
 
 		.card p,
 		.card ul {
 			font-size: 0.9rem;
+			line-height: 1.6;
 			color: #e5e7eb;
 		}
 
@@ -435,23 +455,153 @@
 			color: #bbf7d0;
 		}
 
-		/* CONTACT */
+		/* =========================
+		   PROJECT BUTTONS
+		========================= */
+
+		.project-actions {
+			margin-top: 1rem;
+		}
+
+		.btn-project.btn-github {
+			display: inline-flex;
+			align-items: center;
+			background: rgba(15, 23, 42, 0.9);
+			color: var(--text);
+			border: 1px solid var(--border);
+			border-radius: 999px;
+			padding: 0.55rem 1.2rem;
+			font-size: 0.88rem;
+			font-weight: 500;
+			transition: all 0.18s ease-out;
+		}
+
+		.btn-project.btn-github:hover {
+			background: rgba(34, 197, 94, 0.15);
+			border-color: var(--accent);
+			color: var(--accent);
+			transform: translateY(-2px);
+		}
+
+		video {
+			display: block;
+			margin-top: 1rem;
+			border-radius: 0.7rem;
+			background: #000;
+		}
+
+		/* =========================
+		   EDUCATION
+		========================= */
+
+		.education-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 1.8rem;
+		}
+
+		.education-card {
+			position: relative;
+			background:
+				radial-gradient(
+					circle at top left,
+					rgba(34, 197, 94, 0.1),
+					var(--bg-alt)
+				);
+			border-radius: 1rem;
+			padding: 1.7rem;
+			border: 1px solid rgba(15, 23, 42, 0.9);
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+			overflow: hidden;
+		}
+
+		.education-card:hover {
+			transform: translateY(-4px);
+			border-color: rgba(34, 197, 94, 0.7);
+			transition: transform 0.18s ease-out,
+						border-color 0.18s ease-out;
+		}
+
+		.education-card h3 {
+			font-size: 1.05rem;
+			margin-bottom: 0.35rem;
+		}
+
+		.education-card small {
+			display: block;
+			color: var(--muted);
+			font-size: 0.8rem;
+			line-height: 1.5;
+			margin-bottom: 0.8rem;
+		}
+
+		.education-status {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.4rem;
+			margin-top: 0.15rem;
+			padding: 0.32rem 0.75rem;
+			border-radius: 999px;
+			background: var(--accent-soft);
+			border: 1px solid rgba(34, 197, 94, 0.45);
+			color: #bbf7d0;
+			font-size: 0.74rem;
+			font-weight: 600;
+		}
+
+		.education-status::before {
+			content: "";
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background: var(--accent);
+			box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+		}
+
+		.education-year {
+			margin-top: 0.8rem;
+			color: var(--muted);
+			font-size: 0.84rem;
+		}
+
+		.education-description {
+			margin-top: 0.7rem;
+			color: #e5e7eb;
+			font-size: 0.9rem;
+			line-height: 1.6;
+		}
+
+		/* =========================
+		   CONTACT
+		========================= */
+
 		.contact-grid {
 			display: grid;
 			grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
 			gap: 1.8rem;
 		}
+
 		.contact-list {
 			list-style: none;
 			font-size: 0.9rem;
 			color: #e5e7eb;
 		}
+
 		.contact-list li {
 			margin-bottom: 0.5rem;
 		}
+
 		.contact-list strong {
 			color: var(--muted);
 		}
+
+		.contact-list a:hover {
+			color: var(--accent);
+		}
+
+		/* =========================
+		   FOOTER
+		========================= */
 
 		footer {
 			text-align: center;
@@ -460,63 +610,71 @@
 			border-top: 1px solid rgba(15, 23, 42, 0.9);
 			font-size: 0.85rem;
 		}
+
 		footer span {
 			color: var(--accent);
 		}
 
+		/* =========================
+		   RESPONSIVE
+		========================= */
+
+		@media (max-width: 900px) {
+			.hero {
+				grid-template-columns: 1fr;
+				padding-top: 3rem;
+			}
+		}
+
 		@media (max-width: 640px) {
+
 			.topbar-inner {
 				padding-inline: 1rem;
 			}
+
 			.hero {
 				padding-inline: 1rem;
 			}
+
 			section {
 				padding-inline: 1rem;
 			}
+
 			.nav-links {
 				display: none;
 			}
+
 			.section-header {
 				flex-direction: column;
 				align-items: flex-start;
 			}
+
 			.split,
 			.contact-grid {
 				grid-template-columns: 1fr;
 			}
-      	.btn-project.btn-github {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(15, 23, 42, 0.9);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.55rem 1.2rem;
-    font-size: 0.88rem;
-    font-weight: 500;
-    transition: all 0.18s ease-out;
-}
 
-.btn-project.btn-github:hover {
-    background: rgba(34, 197, 94, 0.15);
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-2px);
-}
-
+			.hero-title {
+				font-size: 2.2rem;
+			}
 		}
 	</style>
 </head>
+
 <body>
 
-	<!-- TOP BAR -->
+	<!-- =========================
+	     TOP BAR
+	========================= -->
+
 	<header class="topbar">
 		<div class="topbar-inner">
+
 			<div class="brand">
 				<div class="brand-mark">SN</div>
 				<div class="brand-name">Shalani</div>
 			</div>
+
 			<nav class="nav-links">
 				<a href="#home">Home</a>
 				<a href="#about">About</a>
@@ -525,92 +683,191 @@
 				<a href="#education">Education</a>
 				<a href="#contact">Contact</a>
 			</nav>
-			
+
 		</div>
 	</header>
 
-	<!-- HERO -->
+
+	<!-- =========================
+	     HERO
+	========================= -->
+
 	<section id="home" class="hero">
+
 		<div>
-			<div class="hero-eyebrow">Hi, I'm Shalani!</div>
-			<h1 class="hero-title">Final Year<br><span>Software Engineering</span> Student</h1>
-		
-		<p class="hero-text">
-    I’m an undergraduate Software Engineering student, having completed all academic requirements
-    and currently awaiting final results. I’m passionate about building modern web applications.
-    With experience in ASP.NET Core, React, PHP, SQL, and cloud integration,
-    I enjoy turning real-world problems into clean, user-friendly digital products.
-</p>
-			<div class="hero-meta">
-				<span>📍 295B/1, Aluthgoda ,Dikwella, Sri Lanka</span>
-				<span>📧 <a href="mailto:shalaninethmini22@gmail.com">shalaninethmini22@gmail.com</a></span>
+
+			<div class="hero-eyebrow">
+				Hi, I'm Shalani!
 			</div>
+
+			<h1 class="hero-title">
+				Software Engineering<br>
+				<span>Undergraduate</span>
+			</h1>
+
+			<p class="hero-text">
+				I’m an undergraduate Software Engineering student who has completed
+				all academic requirements for my BSc (Hons) degree. I’m passionate
+				about building modern web applications. With experience in ASP.NET Core,
+				React, PHP, SQL, and cloud integration, I enjoy turning real-world
+				problems into clean, user-friendly digital products.
+			</p>
+
+			<div class="hero-meta">
+
+				<span>
+					📍 Dikwella, Sri Lanka
+				</span>
+
+				<span>
+					📧
+					<a href="mailto:shalaninethmini22@gmail.com">
+						shalaninethmini22@gmail.com
+					</a>
+				</span>
+
+			</div>
+
 			<div class="hero-actions">
-				<a href="Shalani_Nethmini_CV_.pdf" class="btn-primary" download>
-					<span>Download CV</span> <span>⬇</span>
+
+				<a href="Shalani_Nethmini_CV_.pdf"
+				   class="btn-primary"
+				   download>
+					<span>Download CV</span>
+					<span>⬇</span>
 				</a>
+
 				<a href="#projects" class="btn-secondary">
-					<span class="btn-secondary-circle" class="btn-primary">▶</span>
+					<span class="btn-secondary-circle">▶</span>
 					<span>See My Projects</span>
 				</a>
+
 			</div>
+
 		</div>
+
 
 		<div class="hero-visual">
+
 			<div class="photo-frame">
+
 				<div class="frame-outer"></div>
+
 				<div class="frame-inner">
-					<img src="Shalani.jpg" alt="Shalani Nethmini" class="photo">
+					<img
+						src="Shalani.jpg"
+						alt="Shalani Nethmini"
+						class="photo"
+					>
 				</div>
+
 			</div>
+
 		</div>
+
 	</section>
 
-	<!-- ABOUT -->
+
+	<!-- =========================
+	     ABOUT
+	========================= -->
+
 	<section id="about">
+
 		<div class="section-inner">
+
 			<div class="section-header">
+
 				<div>
-					<div class="section-title">About <span class="accent">Me</span></div>
-					<div class="section-badge">Who I am</div>
+					<div class="section-title">
+						About <span class="accent">Me</span>
+					</div>
+
+					<div class="section-badge">
+						Who I am
+					</div>
 				</div>
+
 				<p class="section-subtitle">
-					undergraduate Software Engineering student with a strong interest in full‑stack web development
-					and maching learning based applications,cloud‑based applications.
+					Undergraduate Software Engineering student with a strong interest
+					in full-stack web development, machine learning-based applications,
+					and cloud-based applications.
 				</p>
+
 			</div>
+
 
 			<div class="split">
-				<p style="font-size:0.92rem;color:#e5e7eb;">
-    I’m an undergraduate Software Engineering student at ICBT Campus Colombo, affiliated with Cardiff Metropolitan University. Through academic projects and self-learning,
-    I have built end-to-end web applications, working on both user-friendly front-end interfaces and secure back-end services.
-</p>
 
-				<p style="font-size:0.92rem;color:#e5e7eb;">
-					I enjoy working in teams, experimenting with new technologies, and writing clean, maintainable code. 
-					I am eager to apply my technical skills to real-world projects while continuing to learn and grow in software engineering.
+				<p style="font-size:0.92rem;color:#e5e7eb;line-height:1.7;">
+					I’m an undergraduate Software Engineering student at ICBT Campus
+					Colombo, affiliated with Cardiff Metropolitan University.
+					Through academic projects and self-learning, I have built
+					end-to-end web applications, working on both user-friendly
+					front-end interfaces and secure back-end services.
 				</p>
+
+				<p style="font-size:0.92rem;color:#e5e7eb;line-height:1.7;">
+					I enjoy working in teams, experimenting with new technologies,
+					and writing clean, maintainable code. I am eager to apply my
+					technical skills to real-world projects while continuing to
+					learn and grow in software engineering.
+				</p>
+
 			</div>
+
 		</div>
+
 	</section>
 
-	<!-- SKILLS -->
+
+	<!-- =========================
+	     SKILLS
+	========================= -->
+
 	<section id="skills">
+
 		<div class="section-inner">
+
 			<div class="section-header">
+
 				<div>
-					<div class="section-title">My <span class="accent">Skills</span></div>
-					<div class="section-badge">What I use</div>
+					<div class="section-title">
+						My <span class="accent">Skills</span>
+					</div>
+
+					<div class="section-badge">
+						What I use
+					</div>
 				</div>
-				<p class="section-subtitle">Technologies and tools I use most often.</p>
+
+				<p class="section-subtitle">
+					Technologies and tools I use most often.
+				</p>
+
 			</div>
 
+
 			<div class="grid">
+
+				<!-- Programming -->
+
 				<div class="card">
-					<div class="card-icon">{"</div>
+
+					<div class="card-icon">
+						{"</>
+					</div>
+
 					<h3>Programming</h3>
-					<small>Languages</small>
-					<p>Java, PHP, HTML, C#, JavaScript, Python</p>
+
+					<small>
+						Languages
+					</small>
+
+					<p>
+						Java, PHP, HTML, C#, JavaScript, Python
+					</p>
+
 					<div class="tags">
 						<span class="tag highlight">Python</span>
 						<span class="tag highlight">Java</span>
@@ -618,37 +875,80 @@
 						<span class="tag">JavaScript</span>
 						<span class="tag">PHP</span>
 					</div>
+
 				</div>
 
+
+				<!-- Frameworks -->
+
 				<div class="card">
-					<div class="card-icon">⚙</div>
+
+					<div class="card-icon">
+						⚙
+					</div>
+
 					<h3>Frameworks &amp; Platforms</h3>
-					<small>Web &amp; Mobile</small>
-					<p>Spring Boot,Android Studio, ASP.NET Core, React.js,
-Bootstrap, Flask,Hibernate, Spring Data JPA,
-scikit-learn,REST API Development, Responsive Web Design,
-MVC Architecture, UI/UX Fundamentals, CRUD
-Operations, CI/CD Basics
-</p>
-					
+
+					<small>
+						Web &amp; Mobile
+					</small>
+
+					<p>
+						Spring Boot, Android Studio, ASP.NET Core, React.js,
+						Bootstrap, Flask, Hibernate, Spring Data JPA,
+						scikit-learn, REST API Development, Responsive Web Design,
+						MVC Architecture, UI/UX Fundamentals, CRUD Operations,
+						CI/CD Basics
+					</p>
+
 				</div>
 
+
+				<!-- Databases -->
+
 				<div class="card">
-					<div class="card-icon">🗄</div>
+
+					<div class="card-icon">
+						🗄
+					</div>
+
 					<h3>Databases</h3>
-					<small>Relational</small>
-					<p>MySQL, Microsoft SQL Server</p>
+
+					<small>
+						Relational
+					</small>
+
+					<p>
+						MySQL, Microsoft SQL Server
+					</p>
+
 					<div class="tags">
 						<span class="tag highlight">MySQL</span>
 						<span class="tag highlight">SQL Server</span>
 					</div>
+
 				</div>
 
+
+				<!-- Tools -->
+
 				<div class="card">
-					<div class="card-icon">☁</div>
+
+					<div class="card-icon">
+						☁
+					</div>
+
 					<h3>Tools &amp; Cloud</h3>
-					<small>Development Environment</small>
-					<p>GitHub, Visual Studio Code, Visual Studio, XAMPP, AWS EC2, S3, RDS,Docker,Railway</p>
+
+					<small>
+						Development Environment
+					</small>
+
+					<p>
+						GitHub, Visual Studio Code, Visual Studio, XAMPP,
+						AWS EC2, S3, RDS, Docker, Railway
+					</p>
+
 					<div class="tags">
 						<span class="tag">GitHub</span>
 						<span class="tag">VS Code</span>
@@ -656,273 +956,542 @@ Operations, CI/CD Basics
 						<span class="tag">AWS</span>
 						<span class="tag">Docker</span>
 					</div>
+
 				</div>
 
+
+				<!-- Soft Skills -->
+
 				<div class="card">
-					<div class="card-icon">✨</div>
+
+					<div class="card-icon">
+						✨
+					</div>
+
 					<h3>Soft Skills</h3>
-					<small>How I work</small>
+
+					<small>
+						How I work
+					</small>
+
 					<ul>
 						<li>Team collaboration and leadership</li>
 						<li>Adaptability under pressure</li>
 						<li>Effective communication and presentation</li>
-						<li>Fast learning and self‑motivation</li>
+						<li>Fast learning and self-motivation</li>
 						<li>Creative talents, including singing</li>
 					</ul>
+
 				</div>
 
+
+				<!-- Languages -->
+
 				<div class="card">
-					<div class="card-icon">🌐</div>
+
+					<div class="card-icon">
+						🌐
+					</div>
+
 					<h3>Languages</h3>
-					<small>Spoken</small>
+
+					<small>
+						Spoken
+					</small>
+
 					<ul>
 						<li>English – Fluent</li>
 						<li>Sinhala – Native</li>
 						<li>Tamil – Basic</li>
 					</ul>
+
 				</div>
+
 			</div>
+
 		</div>
+
 	</section>
 
-	<!-- PROJECTS -->
+
+	<!-- =========================
+	     PROJECTS
+	========================= -->
+
 	<section id="projects">
+
 		<div class="section-inner">
+
 			<div class="section-header">
+
 				<div>
-					<div class="section-title">Featured <span class="accent">Projects</span></div>
-					<div class="section-badge">What I built</div>
+					<div class="section-title">
+						Featured <span class="accent">Projects</span>
+					</div>
+
+					<div class="section-badge">
+						What I built
+					</div>
 				</div>
+
 				<p class="section-subtitle">
-					A few projects that highlight my experience with full‑stack web development.
-				</p>
-			</div>
-
-			
-		<div class="grid">
-
-			<!-- Fraud Detection -->
-			<div class="card">
-				<div class="card-icon">💳</div>
-				<h3>Fraud Detection System</h3>
-				<small>Python + ML + Flask + React + AWS</small>
-
-				<p>
-					A machine learning-based system that detects fraudulent credit card transactions in real-time.
-					The system uses a trained ML model served via Flask API and a React frontend for interaction.
+					A few projects that highlight my experience with
+					full-stack web development and machine learning.
 				</p>
 
-				<ul>
-					<li>Real-time fraud prediction using ML</li>
-					<li>React UI for user interaction</li>
-					<li>Flask REST API backend</li>
-					<li>AWS deployment (EC2)</li>
-				</ul>
-
-				<video controls muted width="100%">
-					<source src="Fraud Detection System.mp4">
-				</video>
-
-				<div class="project-actions">
-					<a href="https://github.com/Shalani98/fraud-detection-system.git" class="btn-project btn-github">GitHub</a>
-				</div>
 			</div>
 
-			<!-- Food Sharing -->
-			<div class="card">
-				<div class="card-icon">🍽</div>
-				<h3>Food Sharing System</h3>
-				<small>Spring Boot + MySQL</small>
 
-				<p>
-					A community-based platform designed to reduce food waste by allowing users to share excess food.
-					It connects donors and receivers through a simple and efficient system.
-				</p>
-
-				<ul>
-					<li>Food donation and request system</li>
-					<li>User authentication & roles</li>
-					<li>MySQL database integration</li>
-					<li>Clean and responsive UI</li>
-				</ul>
-
-				<video controls muted width="100%">
-					<source src="foodsharingsystem.mp4">
-				</video>
-
-				<div class="project-actions">
-					<a href="https://github.com/Shalani98/FoodSharingSystem" class="btn-project btn-github">GitHub</a>
-				</div>
-			</div>
-
-			<!-- POS -->
-			<div class="card">
-				<div class="card-icon">💰</div>
-			<h3>POS System with Docker & CI/CD</h3>
-	<small>Flask + MySQL + Docker + GitHub Actions + Railway</small>
-
-	<p>
-		A modern Point of Sale (POS) system built using Flask and MySQL, fully containerized using Docker and deployed with an automated CI/CD pipeline using GitHub Actions and Railway cloud platform.
-	</p>
-
-	<ul>
-		<li>Admin login with secure session management</li>
-		<li>Add, sell, and manage products</li>
-		<li>Sales history tracking and reporting</li>
-		<li>Supports local (XAMPP) and cloud MySQL (Railway)</li>
-		<li>Fully containerized using Docker</li>
-		<li>Automated CI/CD pipeline for deployment</li>
-	</ul>
-
-	<div class="tags">
-		<span class="tag highlight">Python</span>
-		<span class="tag highlight">Flask</span>
-		<span class="tag highlight">MySQL</span>
-		<span class="tag">Docker</span>
-		<span class="tag">GitHub Actions</span>
-		<span class="tag">Railway</span>
-	</div>
-
-	
-
-				<video controls muted width="100%">
-					<source src="POS System.mp4">
-				</video>
-
-				<div class="project-actions">
-					<a href="https://github.com/Shalani98/POS-System" class="btn-project btn-github">GitHub</a>
-				</div>
-			</div>
-
-		</div>
-	</div>
-		<!-- TRAVEL CEYLON -->
-<div class="card">
-	<div class="card-icon">✈</div>
-	<h3>TravelCeylon Tourism System</h3>
-	<small>Final Year Group Project</small>
-
-	<p>
-		A tourism management platform designed to connect tourists, tour guides, and hotel managers through a centralized system with role-based dashboards and workflows.
-	</p>
-
-	<ul>
-		<li>Role-based dashboards for tourists, guides & hotel managers</li>
-		<li>Tour booking and management workflows</li>
-		<li>Team-based collaborative development</li>
-		<li>Clean and responsive UI design</li>
-	</ul>
-
-	<div class="tags">
-		<span class="tag highlight">PHP</span>
-		<span class="tag highlight">MySQL</span>
-		<span class="tag">HTML</span>
-		<span class="tag">CSS</span>
-		<span class="tag">JavaScript</span>
-	</div>
-
-	<div class="project-actions">
-		<a href="https://github.com/Shalani98/TravelCeylon.git" class="btn-project btn-github">View on GitHub</a>
-	</div>
-</div>
-		<!-- CARECOMPASS -->
-<div class="card">
-	<div class="card-icon">🏥</div>
-	<h3>CareCompass Hospital Website</h3>
-	<small>Responsive Hospital Management System</small>
-
-	<p>
-		A hospital management web application with secure role-based access for Admins, Doctors, Patients, Nurses, and Lab Technicians, designed to improve hospital workflow efficiency.
-	</p>
-
-	<ul>
-		<li>Role-based authentication system</li>
-		<li>Online appointment booking system</li>
-		<li>Medical history and patient record management</li>
-		<li>Mobile-friendly responsive UI</li>
-	</ul>
-
-	<div class="tags">
-		<span class="tag highlight">PHP</span>
-		<span class="tag highlight">MySQL</span>
-		<span class="tag">Bootstrap</span>
-		<span class="tag">JavaScript</span>
-	</div>
-
-	<div class="project-actions">
-		<a href="https://github.com/Shalani98/Hospital-website.git" class="btn-project btn-github">View on GitHub</a>
-	</div>
-</div>
-	</section>
-
-	<!-- EDUCATION -->
-	<section id="education">
-		<div class="section-inner">
-			<div class="section-header">
-				<div>
-					<div class="section-title">My <span class="accent">Education</span></div>
-					<div class="section-badge">Background</div>
-				</div>
-				
-			</div>
-            <div class="grid">
-				<div class="card">
-					<div class="card-icon">🎓</div>
-					<h3>BSc (Hons) Software Engineering </h3>
-					<small>ICBT Campus Colombo (Affiliated with Cardiff Metropolitan University)
-</small>
-					<p>
-						2025(In Progress)
-					</p>
-				</div>
-				
-			</div>
-		</div>
 			<div class="grid">
+
+
+				<!-- Fraud Detection -->
+
 				<div class="card">
-					<div class="card-icon">🎓</div>
-					<h3>Higher Diploma in Computing &amp; Software Engineering</h3>
-					<small>ICBT Southern Campus · Affiliated with Cardiff Metropolitan University</small>
+
+					<div class="card-icon">
+						💳
+					</div>
+
+					<h3>
+						Fraud Detection System
+					</h3>
+
+					<small>
+						Python + ML + Flask + React + AWS
+					</small>
+
 					<p>
-						2023 – 2025 (Successfully completed). Studied software engineering principles, web development,
-						databases, and project‑based modules.
+						A machine learning-based system that detects fraudulent
+						credit card transactions in real-time. The system uses
+						a trained ML model served via Flask API and a React
+						frontend for interaction.
 					</p>
+
+					<ul>
+						<li>Real-time fraud prediction using ML</li>
+						<li>React UI for user interaction</li>
+						<li>Flask REST API backend</li>
+						<li>AWS deployment using EC2</li>
+					</ul>
+
+					<video controls muted width="100%">
+						<source src="Fraud Detection System.mp4">
+					</video>
+
+					<div class="project-actions">
+						<a
+							href="https://github.com/Shalani98/fraud-detection-system.git"
+							class="btn-project btn-github"
+							target="_blank">
+							GitHub
+						</a>
+					</div>
+
 				</div>
-				
+
+
+				<!-- Food Sharing -->
+
+				<div class="card">
+
+					<div class="card-icon">
+						🍽
+					</div>
+
+					<h3>
+						Food Sharing System
+					</h3>
+
+					<small>
+						Spring Boot + MySQL
+					</small>
+
+					<p>
+						A community-based platform designed to reduce food waste
+						by allowing users to share excess food. It connects donors
+						and receivers through a simple and efficient system.
+					</p>
+
+					<ul>
+						<li>Food donation and request system</li>
+						<li>User authentication &amp; roles</li>
+						<li>MySQL database integration</li>
+						<li>Clean and responsive UI</li>
+					</ul>
+
+					<video controls muted width="100%">
+						<source src="foodsharingsystem.mp4">
+					</video>
+
+					<div class="project-actions">
+						<a
+							href="https://github.com/Shalani98/FoodSharingSystem"
+							class="btn-project btn-github"
+							target="_blank">
+							GitHub
+						</a>
+					</div>
+
+				</div>
+
+
+				<!-- POS -->
+
+				<div class="card">
+
+					<div class="card-icon">
+						💰
+					</div>
+
+					<h3>
+						POS System with Docker &amp; CI/CD
+					</h3>
+
+					<small>
+						Flask + MySQL + Docker + GitHub Actions + Railway
+					</small>
+
+					<p>
+						A modern Point of Sale (POS) system built using Flask
+						and MySQL, fully containerized using Docker and deployed
+						with an automated CI/CD pipeline using GitHub Actions
+						and Railway cloud platform.
+					</p>
+
+					<ul>
+						<li>Admin login with secure session management</li>
+						<li>Add, sell, and manage products</li>
+						<li>Sales history tracking and reporting</li>
+						<li>Local and cloud MySQL support</li>
+						<li>Fully containerized using Docker</li>
+						<li>Automated CI/CD pipeline</li>
+					</ul>
+
+					<div class="tags">
+						<span class="tag highlight">Python</span>
+						<span class="tag highlight">Flask</span>
+						<span class="tag highlight">MySQL</span>
+						<span class="tag">Docker</span>
+						<span class="tag">GitHub Actions</span>
+						<span class="tag">Railway</span>
+					</div>
+
+					<video controls muted width="100%">
+						<source src="POS System.mp4">
+					</video>
+
+					<div class="project-actions">
+						<a
+							href="https://github.com/Shalani98/POS-System"
+							class="btn-project btn-github"
+							target="_blank">
+							GitHub
+						</a>
+					</div>
+
+				</div>
+
+
+				<!-- Travel Ceylon -->
+
+				<div class="card">
+
+					<div class="card-icon">
+						✈
+					</div>
+
+					<h3>
+						TravelCeylon Tourism System
+					</h3>
+
+					<small>
+						Final Year Group Project
+					</small>
+
+					<p>
+						A tourism management platform designed to connect
+						tourists, tour guides, and hotel managers through a
+						centralized system with role-based dashboards and workflows.
+					</p>
+
+					<ul>
+						<li>Role-based dashboards for tourists, guides &amp; hotel managers</li>
+						<li>Tour booking and management workflows</li>
+						<li>Team-based collaborative development</li>
+						<li>Clean and responsive UI design</li>
+					</ul>
+
+					<div class="tags">
+						<span class="tag highlight">PHP</span>
+						<span class="tag highlight">MySQL</span>
+						<span class="tag">HTML</span>
+						<span class="tag">CSS</span>
+						<span class="tag">JavaScript</span>
+					</div>
+
+					<div class="project-actions">
+						<a
+							href="https://github.com/Shalani98/TravelCeylon.git"
+							class="btn-project btn-github"
+							target="_blank">
+							View on GitHub
+						</a>
+					</div>
+
+				</div>
+
+
+				<!-- CareCompass -->
+
+				<div class="card">
+
+					<div class="card-icon">
+						🏥
+					</div>
+
+					<h3>
+						CareCompass Hospital Website
+					</h3>
+
+					<small>
+						Responsive Hospital Management System
+					</small>
+
+					<p>
+						A hospital management web application with secure
+						role-based access for Admins, Doctors, Patients,
+						Nurses, and Lab Technicians, designed to improve
+						hospital workflow efficiency.
+					</p>
+
+					<ul>
+						<li>Role-based authentication system</li>
+						<li>Online appointment booking system</li>
+						<li>Medical history and patient record management</li>
+						<li>Mobile-friendly responsive UI</li>
+					</ul>
+
+					<div class="tags">
+						<span class="tag highlight">PHP</span>
+						<span class="tag highlight">MySQL</span>
+						<span class="tag">Bootstrap</span>
+						<span class="tag">JavaScript</span>
+					</div>
+
+					<div class="project-actions">
+						<a
+							href="https://github.com/Shalani98/Hospital-website.git"
+							class="btn-project btn-github"
+							target="_blank">
+							View on GitHub
+						</a>
+					</div>
+
+				</div>
+
 			</div>
+
 		</div>
+
 	</section>
 
-	<!-- CONTACT -->
-	<section id="contact">
+
+	<!-- =========================
+	     EDUCATION
+	========================= -->
+
+	<section id="education">
+
 		<div class="section-inner">
+
 			<div class="section-header">
+
 				<div>
-					<div class="section-title">Get <span class="accent">In Touch</span></div>
-					<div class="section-badge">Say hello</div>
+					<div class="section-title">
+						My <span class="accent">Education</span>
+					</div>
+
+					<div class="section-badge">
+						Academic Background
+					</div>
 				</div>
-				<p class="section-subtitle">
-					Interested in working together or have an opportunity? I’d love to hear from you.
-				</p>
+
 			</div>
+
+
+			<div class="education-grid">
+
+
+				<!-- BSc -->
+
+				<div class="education-card">
+
+					<div class="card-icon">
+						🎓
+					</div>
+
+					<h3>
+						BSc (Hons) Software Engineering
+					</h3>
+
+					<small>
+						ICBT Campus Colombo · Affiliated with
+						Cardiff Metropolitan University
+					</small>
+
+					<div class="education-status">
+						Academic Requirements Completed
+					</div>
+
+					<p class="education-year">
+						2025 – Present
+					</p>
+
+					<p class="education-description">
+						Completed all academic requirements for the
+						BSc (Hons) Software Engineering degree.
+					</p>
+
+				</div>
+
+
+				<!-- Higher Diploma -->
+
+				<div class="education-card">
+
+					<div class="card-icon">
+						🎓
+					</div>
+
+					<h3>
+						Higher Diploma in Computing &amp;
+						Software Engineering
+					</h3>
+
+					<small>
+						ICBT Southern Campus · Affiliated with
+						Cardiff Metropolitan University
+					</small>
+
+					<div class="education-status">
+						Successfully Completed
+					</div>
+
+					<p class="education-year">
+						2023 – 2025
+					</p>
+
+					<p class="education-description">
+						Studied software engineering principles,
+						web development, databases, and
+						project-based modules.
+					</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+	<!-- =========================
+	     CONTACT
+	========================= -->
+
+	<section id="contact">
+
+		<div class="section-inner">
+
+			<div class="section-header">
+
+				<div>
+					<div class="section-title">
+						Get <span class="accent">In Touch</span>
+					</div>
+
+					<div class="section-badge">
+						Say hello
+					</div>
+				</div>
+
+				<p class="section-subtitle">
+					Interested in working together or have an opportunity?
+					I’d love to hear from you.
+				</p>
+
+			</div>
+
 
 			<div class="contact-grid">
+
 				<ul class="contact-list">
-					<li><strong>Email:</strong> <a href="mailto:shalaninethmini22@gmail.com">shalaninethmini22@gmail.com</a></li>
-					<li><strong>Phone:</strong> <a href="tel:+94717506979">+94 71 750 6979</a></li>
-					<li><strong>Location:</strong> 295B/1, Aluthgoda ,Dikwella, Sri Lanka</li>
+
+					<li>
+						<strong>Email:</strong>
+						<a href="mailto:shalaninethmini22@gmail.com">
+							shalaninethmini22@gmail.com
+						</a>
+					</li>
+
+					<li>
+						<strong>Phone:</strong>
+						<a href="tel:+94717506979">
+							+94 71 750 6979
+						</a>
+					</li>
+
+					<li>
+						<strong>Location:</strong>
+						Dikwella, Sri Lanka
+					</li>
+
 				</ul>
+
+
 				<ul class="contact-list">
-					<li><strong>GitHub:</strong> <a href="https://github.com/Shalani98" target="_blank">github.com/Shalani98</a></li>
-					<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shalani-nethmini-48b845266/" target="_blank">linkedin.com/in/shalani-nethmini-48b845266/</a></li>
+
+					<li>
+						<strong>GitHub:</strong>
+						<a
+							href="https://github.com/Shalani98"
+							target="_blank">
+							github.com/Shalani98
+						</a>
+					</li>
+
+					<li>
+						<strong>LinkedIn:</strong>
+						<a
+							href="https://www.linkedin.com/in/shalani-nethmini-48b845266/"
+							target="_blank">
+							linkedin.com/in/shalani-nethmini-48b845266/
+						</a>
+					</li>
+
 				</ul>
+
 			</div>
+
 		</div>
+
 	</section>
 
+
+	<!-- =========================
+	     FOOTER
+	========================= -->
+
 	<footer>
-		<p>© 2025 <span>Shalani Nethmini</span> · Portfolio</p>
+		<p>
+			© 2026
+			<span>Shalani Nethmini</span>
+			· Portfolio
+		</p>
 	</footer>
 
 </body>
 </html>
+
